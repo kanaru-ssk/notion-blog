@@ -10,14 +10,12 @@ export const getPage = async (page_id: string): Promise<Post> => {
     throw new Error("Title is not title");
   if (result.properties.Description.type !== "rich_text")
     throw new Error("Description is not rich_text");
-  if (result.properties.Date.type !== "date")
-    throw new Error("Date is not date");
 
   const title = richTextToPlainText(result.properties.Title.title);
   const description = richTextToPlainText(
     result.properties.Description.rich_text
   );
-  const date = result.properties.Date.date?.start || "";
+  const date = new Date(result.created_time).toLocaleDateString();
 
   return {
     id: result.id,
