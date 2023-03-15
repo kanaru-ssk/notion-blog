@@ -28,32 +28,35 @@ export const getBlocks = async (
     });
 
   return await Promise.all(childBlocks).then((blocks) => {
-    return blocks.reduce((acc: ExpandedBlockObjectResponse[], curr) => {
-      const pre = acc[acc.length - 1];
-      if (curr.type === "bulleted_list_item") {
-        if (pre.type === "bulleted_list") {
-          pre.bulleted_list.children?.push(curr);
+    return blocks.reduce(
+      (result: ExpandedBlockObjectResponse[], currentBlock) => {
+        const previousBlock = result[result.length - 1];
+        if (currentBlock.type === "bulleted_list_item") {
+          if (previousBlock.type === "bulleted_list") {
+            previousBlock.bulleted_list.children?.push(currentBlock);
+          } else {
+            result.push({
+              id: getRandomInt(10 ** 99, 10 ** 100).toString(),
+              type: "bulleted_list",
+              bulleted_list: { children: [currentBlock] },
+            });
+          }
+        } else if (currentBlock.type === "numbered_list_item") {
+          if (previousBlock.type === "numbered_list") {
+            previousBlock.numbered_list.children?.push(currentBlock);
+          } else {
+            result.push({
+              id: getRandomInt(10 ** 99, 10 ** 100).toString(),
+              type: "numbered_list",
+              numbered_list: { children: [currentBlock] },
+            });
+          }
         } else {
-          acc.push({
-            id: getRandomInt(10 ** 99, 10 ** 100).toString(),
-            type: "bulleted_list",
-            bulleted_list: { children: [curr] },
-          });
+          result.push(currentBlock);
         }
-      } else if (curr.type === "numbered_list_item") {
-        if (pre.type === "numbered_list") {
-          pre.numbered_list.children?.push(curr);
-        } else {
-          acc.push({
-            id: getRandomInt(10 ** 99, 10 ** 100).toString(),
-            type: "numbered_list",
-            numbered_list: { children: [curr] },
-          });
-        }
-      } else {
-        acc.push(curr);
-      }
-      return acc;
-    }, []);
+        return result;
+      },
+      []
+    );
   });
 };
