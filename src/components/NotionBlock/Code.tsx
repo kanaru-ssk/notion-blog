@@ -10,7 +10,7 @@ type Props = {
 
 const Code = ({ block }: Props) => {
   return (
-    <pre>
+    <pre className="my-2 rounded bg-gray-200 p-4 font-mono">
       <code key={block.id}>{richTextToPlainText(block.code.rich_text)}</code>
     </pre>
   );
