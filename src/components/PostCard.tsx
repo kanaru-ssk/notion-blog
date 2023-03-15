@@ -13,7 +13,9 @@ const PostCard = ({ post }: Props) => {
       <Link href={`/${post.id}`}>
         <div className="rounded-md border-2 border-gray-200 p-2 hover:bg-gray-200">
           <h3 className="text-xl font-bold">{post.title}</h3>
-          <p>{post.description}</p>
+          <div className="max-h-20 py-2 overflow-hidden">
+            <p>{post.description}</p>
+          </div>
           <p className="text-right text-gray-400">{post.date}</p>
         </div>
       </Link>
