@@ -1,7 +1,6 @@
 import { notion } from "./client";
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
-import { getRandomInt } from "@/utils/getRandomInt";
 
 export const getBlocks = async (
   blockId: string
@@ -34,7 +33,7 @@ export const getBlocks = async (
             previousBlock.bulleted_list.children?.push(currentBlock);
           } else {
             result.push({
-              id: getRandomInt(10 ** 99, 10 ** 100).toString(),
+              id: Math.random().toString(),
               type: "bulleted_list",
               bulleted_list: { children: [currentBlock] },
             });
@@ -44,7 +43,7 @@ export const getBlocks = async (
             previousBlock.numbered_list.children?.push(currentBlock);
           } else {
             result.push({
-              id: getRandomInt(10 ** 99, 10 ** 100).toString(),
+              id: Math.random().toString(),
               type: "numbered_list",
               numbered_list: { children: [currentBlock] },
             });
