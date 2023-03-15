@@ -1,9 +1,10 @@
 import { notion } from "./client";
 import { richTextToPlainText } from "./richTextToPlainText";
+import type { GetPageParameters } from "@notionhq/client/build/src/api-endpoints";
 import type { Post } from "@/types/notion";
 
-export const getPage = async (page_id: string): Promise<Post> => {
-  const result = await notion.pages.retrieve({ page_id });
+export const getPage = async (params: GetPageParameters): Promise<Post> => {
+  const result = await notion.pages.retrieve(params);
   if (!("properties" in result))
     throw new Error("result is not PageObjectResponse");
   if (result.properties.Title.type !== "title")
