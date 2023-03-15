@@ -1,7 +1,12 @@
 import PostCard from "@/components/PostCard";
 import { getDatabase } from "@/libs/notion";
 
-const getData = async () => {
+export const metadata = {
+  title: "notion-blog",
+  description: "created by notion api and next js",
+};
+
+const Home = async () => {
   const posts = await getDatabase({
     database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE,
     sorts: [
@@ -11,18 +16,6 @@ const getData = async () => {
       },
     ],
   });
-  return {
-    posts,
-  };
-};
-
-export const metadata = {
-  title: "notion-blog",
-  description: "created by notion api and next js",
-};
-
-const Home = async () => {
-  const { posts } = await getData();
 
   return (
     <article className="mx-auto max-w-3xl p-4">
