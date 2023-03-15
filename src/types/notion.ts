@@ -8,7 +8,7 @@ export type Post = {
   id: string;
   title: string;
   description: string;
-  date: string;
+  createdDate: string;
 };
 
 export type BulletedListBlockObjectResponse = {

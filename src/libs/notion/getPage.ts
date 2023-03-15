@@ -15,12 +15,12 @@ export const getPage = async (page_id: string): Promise<Post> => {
   const description = richTextToPlainText(
     result.properties.Description.rich_text
   );
-  const date = new Date(result.created_time).toLocaleDateString();
+  const createdDate = new Date(result.created_time).toLocaleDateString();
 
   return {
     id: result.id,
     title,
     description,
-    date,
+    createdDate,
   };
 };

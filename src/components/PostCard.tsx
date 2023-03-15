@@ -16,7 +16,7 @@ const PostCard = ({ post }: Props) => {
           <div className="max-h-20 py-2 overflow-hidden">
             <p>{post.description}</p>
           </div>
-          <p className="text-right text-gray-400">{post.date}</p>
+          <p className="text-right text-gray-400">{post.createdDate}</p>
         </div>
       </Link>
     </li>
