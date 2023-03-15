@@ -1,7 +1,7 @@
 import { notion } from "./client";
 import type { Post } from "@/types/notion";
 import type { QueryDatabaseParameters } from "@notionhq/client/build/src/api-endpoints";
-import { pageResponseToPost } from "./toPost";
+import { pageResponseToPost } from "./pageResponseToPost";
 
 export const getDatabase = async (
   params: QueryDatabaseParameters
