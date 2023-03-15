@@ -4,9 +4,9 @@ import type { ExpandedBlockObjectResponse } from "@/types/notion";
 import { getRandomInt } from "@/utils/getRandomInt";
 
 export const getBlocks = async (
-  block_id: string
+  blockId: string
 ): Promise<ExpandedBlockObjectResponse[]> => {
-  block_id = block_id.replaceAll("-", "");
+  const block_id = blockId.replaceAll("-", "");
 
   const { results } = await notion.blocks.children.list({
     block_id,
