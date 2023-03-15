@@ -35,5 +35,5 @@ export type ExpandedBlockObjectResponse =
   | NumberedListBlockObjectResponse;
 
 export type BlockWithChildren<P = unknown> = P & {
-  children?: ExpandedBlockObjectResponse[] | undefined;
+  children?: ExpandedBlockObjectResponse[];
 };
