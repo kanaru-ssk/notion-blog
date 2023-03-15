@@ -17,16 +17,18 @@ const RichText = ({ text }: Props) => {
           text,
         } = value;
         const style = [
-          bold ? "font-bold " : "",
-          code ? "rounded bg-gray-200 py-[2px] px-1 font-mono " : "",
-          italic ? "italic " : "",
-          strikethrough ? "line-through " : "",
-          underline ? "underline" : "",
-        ].join("");
+          bold && "font-bold",
+          code && "rounded bg-gray-200 py-[2px] px-1 font-mono",
+          italic && "italic",
+          strikethrough && "line-through",
+          underline && "underline",
+        ]
+          .filter(Boolean)
+          .join(" ");
 
         return (
           <span
-            className={style}
+            className={style || undefined}
             style={color !== "default" ? { color } : {}}
             key={`${text.content}-${index}`}
           >
