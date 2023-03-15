@@ -1,6 +1,6 @@
 "use client";
 
-import { ColumnBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { ColumnBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import NotionBlock from ".";
 import type { BlockWithChildren } from "@/types/notion";
 

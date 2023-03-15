@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment } from "react";
-import { BulletedListItemBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { BulletedListItemBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
 import RichText from "@/components/RichText";

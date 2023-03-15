@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BookmarkBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { BookmarkBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {

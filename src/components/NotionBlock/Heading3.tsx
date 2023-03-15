@@ -1,6 +1,6 @@
 "use client";
 
-import { Heading3BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { Heading3BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import RichText from "@/components/RichText";
 
 type Props = {

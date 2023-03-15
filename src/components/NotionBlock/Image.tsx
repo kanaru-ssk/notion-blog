@@ -1,7 +1,7 @@
 "use client";
 
 import NextImage from "next/image";
-import { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import { richTextToPlainText } from "@/libs/notion";
 

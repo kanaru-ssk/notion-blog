@@ -1,6 +1,6 @@
 "use client";
 
-import { TableBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { TableBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import RichText from "@/components/RichText";
 

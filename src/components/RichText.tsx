@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
 
 type Props = {
   text: RichTextItemResponse[];

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FileBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { FileBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import { richTextToPlainText } from "@/libs/notion";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { ToDoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { ToDoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import RichText from "@/components/RichText";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChildPageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { ChildPageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
 
