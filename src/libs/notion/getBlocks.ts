@@ -1,16 +1,14 @@
 import { notion } from "./client";
-import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type {
+  BlockObjectResponse,
+  ListBlockChildrenParameters,
+} from "@notionhq/client/build/src/api-endpoints";
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
 
 export const getBlocks = async (
-  blockId: string
+  params: ListBlockChildrenParameters
 ): Promise<ExpandedBlockObjectResponse[]> => {
-  const block_id = blockId.replaceAll("-", "");
-
-  const { results } = await notion.blocks.children.list({
-    block_id,
-    page_size: 100,
-  });
+  const { results } = await notion.blocks.children.list(params);
 
   // Fetches all child blocks recursively - be mindful of rate limits if you have large amounts of nested blocks
   // See https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
@@ -18,7 +16,7 @@ export const getBlocks = async (
     .filter((result): result is BlockObjectResponse => "type" in result)
     .map(async (block) => {
       if (block.has_children) {
-        const children = await getBlocks(block.id);
+        const children = await getBlocks({ block_id: block.id });
         return { ...block, children };
       }
       return block;

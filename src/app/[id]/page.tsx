@@ -18,7 +18,8 @@ export const generateMetadata = async ({
 };
 
 const PostPage = async ({ params }: Props) => {
-  const blocks = await getBlocks(params.id);
+  const block_id = params.id.replaceAll("-", "");
+  const blocks = await getBlocks({ block_id, page_size: 100 });
   return (
     <article className="mx-auto max-w-3xl p-4">
       {blocks.map((block) => (
