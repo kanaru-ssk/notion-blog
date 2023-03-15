@@ -1,10 +1,6 @@
 import { notion } from "./client";
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import {
-  ExpandedBlockObjectResponse,
-  isBulletedListBlockObjectResponse,
-  isNumberedListBlockObjectResponse,
-} from "@/types/notion";
+import type { ExpandedBlockObjectResponse } from "@/types/notion";
 import { getRandomInt } from "@/utils/getRandomInt";
 
 export const getBlocks = async (
@@ -35,7 +31,7 @@ export const getBlocks = async (
     return blocks.reduce((acc: ExpandedBlockObjectResponse[], curr) => {
       const pre = acc[acc.length - 1];
       if (curr.type === "bulleted_list_item") {
-        if (isBulletedListBlockObjectResponse(pre)) {
+        if (pre.type === "bulleted_list") {
           pre.bulleted_list.children?.push(curr);
         } else {
           acc.push({
@@ -45,7 +41,7 @@ export const getBlocks = async (
           });
         }
       } else if (curr.type === "numbered_list_item") {
-        if (isNumberedListBlockObjectResponse(pre)) {
+        if (pre.type === "numbered_list") {
           pre.numbered_list.children?.push(curr);
         } else {
           acc.push({

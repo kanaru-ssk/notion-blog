@@ -19,11 +19,6 @@ export type BulletedListBlockObjectResponse = {
   };
 };
 
-export const isBulletedListBlockObjectResponse = (
-  block: ExpandedBlockObjectResponse
-): block is BulletedListBlockObjectResponse =>
-  block && block.type === "bulleted_list";
-
 export type NumberedListBlockObjectResponse = {
   id: string;
   type: "numbered_list";
@@ -31,11 +26,6 @@ export type NumberedListBlockObjectResponse = {
     children: Array<NumberedListItemBlockObjectResponse>;
   };
 };
-
-export const isNumberedListBlockObjectResponse = (
-  block: ExpandedBlockObjectResponse
-): block is NumberedListBlockObjectResponse =>
-  block && block.type === "numbered_list";
 
 export type ExpandedBlockObjectResponse =
   | ({
