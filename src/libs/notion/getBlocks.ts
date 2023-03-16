@@ -3,6 +3,7 @@ import type {
   BlockObjectResponse,
   ListBlockChildrenParameters,
 } from "@notionhq/client/build/src/api-endpoints";
+import { unsupportedBlocks } from "@/constants/unsupportedBlocks";
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
 
 export const getBlocks = async (
@@ -15,7 +16,7 @@ export const getBlocks = async (
   const childBlocks = results
     .filter((result): result is BlockObjectResponse => "type" in result)
     .map(async (block) => {
-      if (block.has_children && block.type !== "child_page") {
+      if (!unsupportedBlocks.includes(block.type) && block.has_children) {
         const children = await getBlocks({ block_id: block.id });
         return { ...block, children };
       }
