@@ -23,7 +23,7 @@ pnpm install
 
    1. Create a new Notion account if you don't have one already.
    2. Get your Notion API key by following the [official guide](https://developers.notion.com/docs/create-a-notion-integration).
-   3. Create a new database and add the following properties: Title, Description, and Content.
+   3. Create a new database and add the following properties: Title, Description, Image and Content.
    4. Share the database with your integration by granting it "Read" access to the database.
 
 4. Set environment variables
