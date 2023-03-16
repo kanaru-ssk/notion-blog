@@ -10,7 +10,7 @@ type Props = {
 
 const Quote = ({ block }: Props) => {
   return (
-    <blockquote key={block.id}>
+    <blockquote className="text-sm my-5 border-l-4 text-gray-600 border-l-gray-400 py-1 pl-3">
       {richTextToPlainText(block.quote.rich_text)}
     </blockquote>
   );

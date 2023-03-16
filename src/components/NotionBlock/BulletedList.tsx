@@ -9,7 +9,7 @@ type Props = {
 
 const BulletedList = ({ block }: Props) => {
   return (
-    <ul className="list-disc pl-5">
+    <ul className="list-disc pl-7 my-5">
       {block.bulleted_list.children.map((child) => (
         <NotionBlock block={child} key={child.id} />
       ))}

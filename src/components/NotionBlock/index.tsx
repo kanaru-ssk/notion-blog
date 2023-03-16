@@ -7,6 +7,7 @@ import ChildPage from "./ChildPage";
 import Code from "./Code";
 import Column from "./Column";
 import ColumnList from "./ColumnList";
+import Divider from "./Divider";
 import File from "./File";
 import Heading1 from "./Heading1";
 import Heading2 from "./Heading2";
@@ -18,6 +19,7 @@ import Paragraph from "./Paragraph";
 import Quote from "./Quote";
 import Table from "./Table";
 import ToDo from "./ToDo";
+import ToDoList from "./ToDoList";
 import Toggle from "./Toggle";
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
 
@@ -43,6 +45,8 @@ const NotionBlock = ({ block }: Props) => {
       return <BulletedListItem block={block} />;
     case "numbered_list_item":
       return <NumberedListItem block={block} />;
+    case "to_do_list":
+      return <ToDoList block={block} />;
     case "to_do":
       return <ToDo block={block} />;
     case "toggle":
@@ -53,7 +57,7 @@ const NotionBlock = ({ block }: Props) => {
       // eslint-disable-next-line jsx-a11y/alt-text
       return <Image block={block} />;
     case "divider":
-      return <hr key={block.id} />;
+      return <Divider />;
     case "quote":
       return <Quote block={block} />;
     case "code":

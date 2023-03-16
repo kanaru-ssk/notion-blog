@@ -9,7 +9,7 @@ type Props = {
 
 const NumberedList = ({ block }: Props) => {
   return (
-    <ol className="list-decimal pl-5">
+    <ol className="list-decimal pl-7 my-5">
       {block.numbered_list.children.map((child) => (
         <NotionBlock block={child} key={child.id} />
       ))}

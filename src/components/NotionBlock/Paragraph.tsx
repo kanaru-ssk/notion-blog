@@ -13,16 +13,18 @@ type Props = {
 const Paragraph = ({ block }: Props) => {
   return (
     <>
-      <p className="my-4">
+      <p className="mt-1 min-h-[18px]">
         <RichText text={block.paragraph.rich_text} />
       </p>
-      <div className="ml-4">
-        {block.children?.map((child) => (
-          <Fragment key={child.id}>
-            {<NotionBlock block={child} key={child.id} />}
-          </Fragment>
-        ))}
-      </div>
+      {block.children && (
+        <div className="ml-4">
+          {block.children.map((child) => (
+            <Fragment key={child.id}>
+              {<NotionBlock block={child} key={child.id} />}
+            </Fragment>
+          ))}
+        </div>
+      )}
     </>
   );
 };

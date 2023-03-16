@@ -10,18 +10,15 @@ type Props = {
 
 const ToDo = ({ block }: Props) => {
   return (
-    <div className="my-2">
-      <label htmlFor={block.id} className="cursor-pointer">
-        <input
-          type="checkbox"
-          id={block.id}
-          defaultChecked={block.to_do.checked}
-        />
-        <span className="ml-2">
-          <RichText text={block.to_do.rich_text} />
-        </span>
-      </label>
-    </div>
+    <li className="my-2">
+      <input
+        type="checkbox"
+        readOnly
+        checked={block.to_do.checked}
+        className="pointer-events-none mr-2"
+      />
+      <RichText text={block.to_do.rich_text} />
+    </li>
   );
 };
 

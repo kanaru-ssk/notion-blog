@@ -12,7 +12,7 @@ type Props = {
 
 const BulletedListItem = ({ block }: Props) => {
   return (
-    <li>
+    <li className="m-1.5">
       <RichText text={block.bulleted_list_item.rich_text} />
       {block.children?.map((child) => (
         <Fragment key={child.id}>

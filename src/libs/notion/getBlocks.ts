@@ -46,6 +46,16 @@ export const getBlocks = async (
               numbered_list: { children: [currentBlock] },
             });
           }
+        } else if (currentBlock.type === "to_do") {
+          if (previousBlock.type === "to_do_list") {
+            previousBlock.to_do_list.children?.push(currentBlock);
+          } else {
+            result.push({
+              id: Math.random().toString(),
+              type: "to_do_list",
+              to_do_list: { children: [currentBlock] },
+            });
+          }
         } else {
           result.push(currentBlock);
         }

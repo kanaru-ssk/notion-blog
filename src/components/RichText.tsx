@@ -18,7 +18,6 @@ const RichText = ({ text }: Props) => {
         } = value;
         const style = [
           bold && "font-bold",
-          code && "rounded bg-gray-200 py-[2px] px-1 font-mono",
           italic && "italic",
           strikethrough && "line-through",
           underline && "underline",
@@ -26,22 +25,42 @@ const RichText = ({ text }: Props) => {
           .filter(Boolean)
           .join(" ");
 
+        if (text.link)
+          return (
+            <span
+              className={style || undefined}
+              style={color !== "default" ? { color } : {}}
+              key={`${text.content}-${index}`}
+            >
+              <Link
+                href={text.link.url}
+                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              >
+                {text.content}
+              </Link>
+            </span>
+          );
+
+        if (code)
+          return (
+            <span
+              className={style || undefined}
+              style={color !== "default" ? { color } : {}}
+              key={`${text.content}-${index}`}
+            >
+              <code className="rounded bg-gray-200 py-1 px-2 font-mono text-sm">
+                {text.content}
+              </code>
+            </span>
+          );
+
         return (
           <span
             className={style || undefined}
             style={color !== "default" ? { color } : {}}
             key={`${text.content}-${index}`}
           >
-            {text.link ? (
-              <Link
-                href={text.link.url}
-                className="text-blue-500 underline hover:text-gray-400"
-              >
-                {text.content}
-              </Link>
-            ) : (
-              text.content
-            )}
+            {text.content}
           </span>
         );
       })}

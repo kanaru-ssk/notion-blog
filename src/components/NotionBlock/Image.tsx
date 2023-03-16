@@ -19,10 +19,14 @@ const Image = ({ block }: Props) => {
     : "";
   return (
     <figure>
-      <NextImage src={src} alt={caption} width={100} height={100} />
-      {caption && (
-        <figcaption className="text-sm text-gray-400">{caption}</figcaption>
-      )}
+      <NextImage
+        src={src}
+        alt={caption}
+        width={700}
+        height={475}
+        className="w-full h-auto my-6"
+        title={caption}
+      />
     </figure>
   );
 };

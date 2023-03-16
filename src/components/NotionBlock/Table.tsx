@@ -10,19 +10,26 @@ type Props = {
 
 const Table = ({ block }: Props) => {
   return (
-    <table>
+    <table className="block my-4 mx-auto w-auto border-collapse text-sm">
       <tbody>
         {block.children?.map((child, childIndex) => {
-          const RowElement =
-            block.table.has_column_header && childIndex == 0 ? "th" : "td";
           return (
             <tr key={child.id}>
               {child.type === "table_row" &&
                 child.table_row?.cells?.map((cell, cellIndex) => {
                   return (
-                    <RowElement key={`${cell[0].plain_text}-${cellIndex}`}>
-                      <RichText text={cell} />
-                    </RowElement>
+                    <>
+                      {(block.table.has_column_header && childIndex == 0) ||
+                      (block.table.has_row_header && cellIndex == 0) ? (
+                        <th className="bg-gray-100 p-2 border border-gray-200">
+                          <RichText text={cell} />
+                        </th>
+                      ) : (
+                        <td className="p-2 border border-gray-200">
+                          <RichText text={cell} />
+                        </td>
+                      )}
+                    </>
                   );
                 })}
             </tr>

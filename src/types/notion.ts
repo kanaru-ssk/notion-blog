@@ -2,6 +2,7 @@ import type {
   BlockObjectResponse,
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
+  ToDoBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
 export type Post = {
@@ -27,12 +28,21 @@ export type NumberedListBlockObjectResponse = {
   };
 };
 
+export type ToDoListBlockObjectResponse = {
+  id: string;
+  type: "to_do_list";
+  to_do_list: {
+    children: Array<ToDoBlockObjectResponse>;
+  };
+};
+
 export type ExpandedBlockObjectResponse =
   | ({
       children?: ExpandedBlockObjectResponse[];
     } & BlockObjectResponse)
   | BulletedListBlockObjectResponse
-  | NumberedListBlockObjectResponse;
+  | NumberedListBlockObjectResponse
+  | ToDoListBlockObjectResponse;
 
 export type BlockWithChildren<P = unknown> = P & {
   children?: ExpandedBlockObjectResponse[];

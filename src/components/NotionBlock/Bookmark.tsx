@@ -13,7 +13,7 @@ const Bookmark = ({ block }: Props) => {
     <Link
       href={block.bookmark.url}
       target="_brank"
-      className="text-blue hover:text-gray underline"
+      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
     >
       {block.bookmark.url}
     </Link>

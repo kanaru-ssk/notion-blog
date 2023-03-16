@@ -16,13 +16,15 @@ const Toggle = ({ block }: Props) => {
       <summary className="cursor-pointer">
         <RichText text={block.toggle.rich_text} />
       </summary>
-      <div className="ml-4">
-        {block.children?.map((child) => (
-          <Fragment key={child.id}>
-            {<NotionBlock block={child} key={child.id} />}
-          </Fragment>
-        ))}
-      </div>
+      {block.children && (
+        <div className="ml-4">
+          {block.children.map((child) => (
+            <Fragment key={child.id}>
+              {<NotionBlock block={child} key={child.id} />}
+            </Fragment>
+          ))}
+        </div>
+      )}
     </details>
   );
 };
