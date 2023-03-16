@@ -15,7 +15,7 @@ export const getBlocks = async (
   const childBlocks = results
     .filter((result): result is BlockObjectResponse => "type" in result)
     .map(async (block) => {
-      if (block.has_children) {
+      if (block.has_children && block.type !== "child_page") {
         const children = await getBlocks({ block_id: block.id });
         return { ...block, children };
       }

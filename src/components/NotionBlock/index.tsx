@@ -3,7 +3,6 @@
 import Bookmark from "./Bookmark";
 import BulletedList from "./BulletedList";
 import BulletedListItem from "./BulletedListItem";
-import ChildPage from "./ChildPage";
 import Code from "./Code";
 import Column from "./Column";
 import ColumnList from "./ColumnList";
@@ -51,8 +50,6 @@ const NotionBlock = ({ block }: Props) => {
       return <ToDo block={block} />;
     case "toggle":
       return <Toggle block={block} />;
-    case "child_page":
-      return <ChildPage block={block} />;
     case "image":
       // eslint-disable-next-line jsx-a11y/alt-text
       return <Image block={block} />;
@@ -73,15 +70,9 @@ const NotionBlock = ({ block }: Props) => {
     case "column":
       return <Column block={block} />;
     default:
-      return (
-        <>
-          `❌ Unsupported block ($
-          {block.type === "unsupported"
-            ? "unsupported by Notion API"
-            : block.type}
-          )`
-        </>
-      );
+      console.log("Unsupported block :", block.type);
+      return null;
   }
 };
+
 export default NotionBlock;
