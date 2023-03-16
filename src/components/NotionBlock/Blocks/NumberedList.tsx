@@ -1,7 +1,7 @@
 "use client";
 
-import type { NumberedListBlockObjectResponse } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
+import type { NumberedListBlockObjectResponse } from "@/types/notion";
 
 type Props = {
   block: NumberedListBlockObjectResponse;

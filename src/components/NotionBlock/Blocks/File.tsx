@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import type { FileBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import type { BlockWithChildren } from "@/types/notion";
-import { richTextToPlainText } from "@/libs/notion";
 import Image from "next/image";
+import type { FileBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { richTextToPlainText } from "@/libs/notion";
+import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<FileBlockObjectResponse>;

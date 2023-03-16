@@ -1,10 +1,10 @@
-import { notion } from "./client";
 import type {
   BlockObjectResponse,
   ListBlockChildrenParameters,
 } from "@notionhq/client/build/src/api-endpoints";
 import { unsupportedBlocks } from "@/constants/unsupportedBlocks";
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
+import { notion } from "./client";
 
 export const getBlocks = async (
   params: ListBlockChildrenParameters

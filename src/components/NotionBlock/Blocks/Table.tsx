@@ -2,8 +2,8 @@
 
 import { Fragment } from "react";
 import type { TableBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import type { BlockWithChildren } from "@/types/notion";
 import RichText from "@/components/RichText";
+import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<TableBlockObjectResponse>;

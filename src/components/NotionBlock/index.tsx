@@ -1,5 +1,6 @@
 "use client";
 
+import type { ExpandedBlockObjectResponse } from "@/types/notion";
 import Bookmark from "./Blocks/Bookmark";
 import BulletedList from "./Blocks/BulletedList";
 import BulletedListItem from "./Blocks/BulletedListItem";
@@ -21,7 +22,6 @@ import Table from "./Blocks/Table";
 import ToDo from "./Blocks/ToDo";
 import ToDoList from "./Blocks/ToDoList";
 import Toggle from "./Blocks/Toggle";
-import type { ExpandedBlockObjectResponse } from "@/types/notion";
 
 type Props = {
   block: ExpandedBlockObjectResponse;

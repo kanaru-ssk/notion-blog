@@ -1,7 +1,7 @@
 "use client";
 
-import type { ToDoListBlockObjectResponse } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
+import type { ToDoListBlockObjectResponse } from "@/types/notion";
 
 type Props = {
   block: ToDoListBlockObjectResponse;

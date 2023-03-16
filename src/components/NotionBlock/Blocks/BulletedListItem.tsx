@@ -1,9 +1,9 @@
 "use client";
 
 import type { BulletedListItemBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import type { BlockWithChildren } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
 import RichText from "@/components/RichText";
+import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<BulletedListItemBlockObjectResponse>;

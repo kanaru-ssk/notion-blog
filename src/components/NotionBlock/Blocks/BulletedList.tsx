@@ -1,7 +1,7 @@
 "use client";
 
-import type { BulletedListBlockObjectResponse } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
+import type { BulletedListBlockObjectResponse } from "@/types/notion";
 
 type Props = {
   block: BulletedListBlockObjectResponse;
