@@ -9,7 +9,7 @@ type Props = {
 
 const Heading1 = ({ block }: Props) => {
   return (
-    <h1 className="mb-4 text-3xl font-bold">
+    <h1 className="mb-6 text-3xl font-bold">
       <RichText text={block.heading_1.rich_text} />
     </h1>
   );
