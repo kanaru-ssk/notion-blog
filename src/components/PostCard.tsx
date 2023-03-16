@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import type { Post } from "@/types/notion";
 
 type Props = {
@@ -8,15 +9,29 @@ type Props = {
 };
 
 const PostCard = ({ post }: Props) => {
+  if (post.isNotFound) return null;
   return (
-    <li className="my-4 list-none">
+    <li className="my-4 h-24 w-full rounded-xl bg-white duration-150 hover:-translate-y-1 hover:drop-shadow-md md:my-8 md:h-48">
       <Link href={`/${post.id}`}>
-        <div className="rounded-xl border-2 border-gray-200 bg-white p-4 hover:bg-gray-100">
-          <h3 className="text-xl font-bold">{post.title}</h3>
-          <div className="my-2 max-h-20 overflow-hidden py-2">
-            <p>{post.description}</p>
-          </div>
-          <p className="text-right text-gray-400">{post.createdDate}</p>
+        <div className="flex">
+          <Image
+            src={post.coverImageSrc}
+            alt="opg-image"
+            width={700}
+            height={475}
+            className="h-24 w-32 rounded-l-xl object-cover md:h-48 md:w-64"
+          />
+          <article className="relative max-h-max flex-1 p-4">
+            <h3 className="text-md max-h-12 overflow-hidden font-bold md:max-h-14 md:text-xl">
+              {post.title}
+            </h3>
+            <div className="hidden max-h-4 overflow-hidden py-2 text-gray-500 md:block md:max-h-20">
+              <p>{post.description}</p>
+            </div>
+            <p className="absolute bottom-4 right-4 text-xs text-gray-400">
+              {post.createdDate}
+            </p>
+          </article>
         </div>
       </Link>
     </li>

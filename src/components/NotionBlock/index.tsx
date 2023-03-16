@@ -73,7 +73,6 @@ const NotionBlock = ({ block }: Props) => {
     case "toggle":
       return <Toggle block={block} />;
     default:
-      console.log("Unsupported block :", block.type);
       return null;
   }
 };

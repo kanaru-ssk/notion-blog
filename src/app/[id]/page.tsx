@@ -11,6 +11,7 @@ export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   const page = await getPage({ page_id: params.id });
+  if (page.isNotFound) return {};
   return {
     title: page.title,
     description: page.description,
