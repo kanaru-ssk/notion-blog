@@ -18,11 +18,11 @@ const Home = async () => {
   });
 
   return (
-    <article className="mx-auto max-w-3xl">
+    <div className="mx-auto py-20 px-4 max-w-3xl">
       {posts.map((post) => {
         return <PostCard post={post} key={post.id} />;
       })}
-    </article>
+    </div>
   );
 };
 

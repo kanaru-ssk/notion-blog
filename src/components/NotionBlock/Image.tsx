@@ -18,7 +18,7 @@ const Image = ({ block }: Props) => {
     ? richTextToPlainText(block.image.caption)
     : "";
   return (
-    <figure className=" my-6">
+    <figure className="my-6">
       <NextImage
         src={src}
         alt={caption}

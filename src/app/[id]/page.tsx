@@ -21,11 +21,13 @@ const PostPage = async ({ params }: Props) => {
   const block_id = params.id.replaceAll("-", "");
   const blocks = await getBlocks({ block_id, page_size: 100 });
   return (
-    <article className="mx-auto max-w-3xl p-12 rounded-xl bg-white">
-      {blocks.map((block) => (
-        <NotionBlock block={block} key={block.id} />
-      ))}
-    </article>
+    <div className="mx-auto md:py-20 md:px-4 max-w-3xl">
+      <article className="mx-auto px-4 max-w-3xl md:px-12 py-12 md:rounded-xl bg-white">
+        {blocks.map((block) => (
+          <NotionBlock block={block} key={block.id} />
+        ))}
+      </article>
+    </div>
   );
 };
 

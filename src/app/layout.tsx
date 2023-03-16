@@ -14,7 +14,7 @@ const RootLayout = ({ children }: Props) => {
     <html>
       <body>
         <Header />
-        <main className="bg-gray-200 py-20 px-5">{children}</main>
+        <main className="bg-gray-200">{children}</main>
       </body>
     </html>
   );
