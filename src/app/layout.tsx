@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import "@/styles/globals.css";
 
@@ -15,6 +16,7 @@ const RootLayout = ({ children }: Props) => {
       <body>
         <Header />
         <main className="bg-gray-200">{children}</main>
+        <Footer />
       </body>
     </html>
   );
