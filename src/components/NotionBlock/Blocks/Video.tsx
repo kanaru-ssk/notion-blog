@@ -2,7 +2,6 @@
 
 import type { VideoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
-import { getYouTubeId } from "@/utils.ts/getYoutubeId";
 
 type Props = {
   block: BlockWithChildren<VideoBlockObjectResponse>;
@@ -16,14 +15,16 @@ const Video = ({ block }: Props) => {
       </video>
     );
   } else if (block.video.type === "external") {
-    const videoId = getYouTubeId(block.video.external.url);
-    if (videoId)
+    const YouTubeVideoId = block.video.external.url.match(
+      /(?:\?v=|&v=|youtu\.be\/)(.*?)(?:\?|&|$)/
+    )?.[1];
+    if (YouTubeVideoId)
       return (
         <div className="m-1.5">
           <iframe
             width={560}
             height={315}
-            src={`https://www.youtube.com/embed/${videoId}`}
+            src={`https://www.youtube.com/embed/${YouTubeVideoId}`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
