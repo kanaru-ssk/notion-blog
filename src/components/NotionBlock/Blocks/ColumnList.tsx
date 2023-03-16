@@ -1,7 +1,7 @@
 "use client";
 
 import type { ColumnListBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import NotionBlock from ".";
+import NotionBlock from "@/components/NotionBlock";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
