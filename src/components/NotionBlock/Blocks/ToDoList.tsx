@@ -9,7 +9,7 @@ type Props = {
 
 const ToDoList = ({ block }: Props) => {
   return (
-    <ul className="pl-7 my-5">
+    <ul className="my-5 pl-7">
       {block.to_do_list.children.map((child) => (
         <NotionBlock block={child} key={child.id} />
       ))}

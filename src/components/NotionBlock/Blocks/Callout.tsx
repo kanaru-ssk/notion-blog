@@ -10,8 +10,8 @@ type Props = {
 
 const Callout = ({ block }: Props) => {
   return (
-    <aside className="p-6 bg-orange-100 my-6 flex gap-4 rounded-xl items-center text-gray-800">
-      <span className="shrink-0 flex items-center justify-center w-6 h-6 bg-orange-400 text-white rounded-full font-bold">
+    <aside className="my-6 flex items-center gap-4 rounded-xl bg-orange-100 p-6 text-gray-800">
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-400 font-bold text-white">
         !
       </span>
       <div className="min-w-0 break-words">

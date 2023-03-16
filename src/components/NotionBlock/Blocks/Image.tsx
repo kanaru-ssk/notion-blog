@@ -24,7 +24,7 @@ const Image = ({ block }: Props) => {
         alt={caption}
         width={700}
         height={475}
-        className="w-full h-auto"
+        className="h-auto w-full"
         title={caption}
       />
       {caption && (
