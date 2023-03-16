@@ -18,7 +18,11 @@ export const pageResponseToPost = (value: GetPageResponse): Post => {
     value.properties.Description?.type === "rich_text"
       ? richTextToPlainText(value.properties.Description.rich_text)
       : "";
-  const createdDate = new Date(value.created_time).toLocaleDateString();
+  const createdDate =
+    (value.properties.CreateDate.type === "date" &&
+      value.properties.CreateDate.date &&
+      new Date(value.properties.CreateDate.date.start).toLocaleDateString()) ||
+    new Date(value.created_time).toLocaleDateString();
   const coverImageSrc =
     value.properties.Image?.type === "files" &&
     value.properties.Image.files[0]?.type === "file"
