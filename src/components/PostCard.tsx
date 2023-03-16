@@ -17,8 +17,8 @@ const PostCard = ({ post }: Props) => {
           <Image
             src={post.coverImageSrc}
             alt="opg-image"
-            width={700}
-            height={475}
+            width={256}
+            height={144}
             className="h-24 w-32 rounded-l-xl object-cover md:h-48 md:w-64"
           />
           <article className="relative max-h-max flex-1 p-4">
