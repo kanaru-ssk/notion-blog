@@ -19,7 +19,7 @@ export const pageResponseToPost = (value: GetPageResponse): Post => {
       ? richTextToPlainText(value.properties.Description.rich_text)
       : "";
   const createdDate =
-    (value.properties.CreateDate.type === "date" &&
+    (value.properties.CreateDate?.type === "date" &&
       value.properties.CreateDate.date &&
       new Date(value.properties.CreateDate.date.start).toLocaleDateString()) ||
     new Date(value.created_time).toLocaleDateString();
