@@ -11,16 +11,16 @@ export const pageResponseToPost = (value: GetPageResponse): Post => {
     };
 
   const title =
-    value.properties.Title.type === "title"
+    value.properties.Title?.type === "title"
       ? richTextToPlainText(value.properties.Title.title)
       : "No Title";
   const description =
-    value.properties.Description.type === "rich_text"
+    value.properties.Description?.type === "rich_text"
       ? richTextToPlainText(value.properties.Description.rich_text)
       : "";
   const createdDate = new Date(value.created_time).toLocaleDateString();
   const coverImageSrc =
-    value.properties.Image.type === "files" &&
+    value.properties.Image?.type === "files" &&
     value.properties.Image.files[0]?.type === "file"
       ? value.properties.Image.files[0].file.url
       : defaultSeo.coverImageSrc;
