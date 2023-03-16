@@ -10,7 +10,7 @@ type Props = {
 
 const Column = ({ block }: Props) => {
   return (
-    <div>
+    <div className="flex-1 min-w-0 break-words">
       {block.children &&
         block.children.map((child) => (
           <NotionBlock block={child} key={child.id} />

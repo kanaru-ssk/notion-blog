@@ -18,7 +18,7 @@ const Home = async () => {
   });
 
   return (
-    <article className="mx-auto max-w-3xl p-4">
+    <article className="mx-auto max-w-3xl">
       {posts.map((post) => {
         return <PostCard post={post} key={post.id} />;
       })}

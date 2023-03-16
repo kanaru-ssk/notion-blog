@@ -10,7 +10,7 @@ type Props = {
 
 const ColumnList = ({ block }: Props) => {
   return (
-    <div className="my-4 flex w-full items-center justify-around">
+    <div className="gap-4 my-5 flex w-full justify-around">
       {block.children &&
         block.children.map((block) => (
           <NotionBlock block={block} key={block.id} />
