@@ -27,7 +27,7 @@ const Code = ({ block }: Props) => {
 
   return (
     <pre className="group my-5 p-5 rounded-xl relative whitespace-pre bg-gray-200 font-mono">
-      <code key={block.id}>{plaintext}</code>
+      <code>{plaintext}</code>
       <button
         onClick={handleCopyClick}
         className="group/button absolute top-0 right-0 duration-100 m-4 opacity-0 group-hover:opacity-100"

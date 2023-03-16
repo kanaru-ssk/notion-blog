@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import type { ParagraphBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
@@ -19,9 +18,7 @@ const Paragraph = ({ block }: Props) => {
       {block.children && (
         <div className="ml-4">
           {block.children.map((child) => (
-            <Fragment key={child.id}>
-              {<NotionBlock block={child} key={child.id} />}
-            </Fragment>
+            <NotionBlock block={child} key={child.id} />
           ))}
         </div>
       )}

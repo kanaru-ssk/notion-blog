@@ -16,6 +16,7 @@ const RichText = ({ text }: Props) => {
           annotations: { bold, code, color, italic, strikethrough, underline },
           text,
         } = value;
+        const key = `${text.content}-${index}`;
         const style = [
           bold && "font-bold",
           italic && "italic",
@@ -30,7 +31,7 @@ const RichText = ({ text }: Props) => {
             <span
               className={style || undefined}
               style={color !== "default" ? { color } : {}}
-              key={`${text.content}-${index}`}
+              key={key}
             >
               <Link
                 href={text.link.url}
@@ -46,7 +47,7 @@ const RichText = ({ text }: Props) => {
             <span
               className={style || undefined}
               style={color !== "default" ? { color } : {}}
-              key={`${text.content}-${index}`}
+              key={key}
             >
               <code className="rounded bg-gray-200 py-1 px-2 font-mono text-sm">
                 {text.content}
@@ -58,7 +59,7 @@ const RichText = ({ text }: Props) => {
           <span
             className={style || undefined}
             style={color !== "default" ? { color } : {}}
-            key={`${text.content}-${index}`}
+            key={key}
           >
             {text.content}
           </span>

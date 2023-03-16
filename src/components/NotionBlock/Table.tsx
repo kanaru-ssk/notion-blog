@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import type { TableBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import RichText from "@/components/RichText";
@@ -18,7 +19,7 @@ const Table = ({ block }: Props) => {
               {child.type === "table_row" &&
                 child.table_row?.cells?.map((cell, cellIndex) => {
                   return (
-                    <>
+                    <Fragment key={`${cell[0].plain_text}-${cellIndex}`}>
                       {(block.table.has_column_header && childIndex == 0) ||
                       (block.table.has_row_header && cellIndex == 0) ? (
                         <th className="bg-gray-100 p-2 border border-gray-200">
@@ -29,7 +30,7 @@ const Table = ({ block }: Props) => {
                           <RichText text={cell} />
                         </td>
                       )}
-                    </>
+                    </Fragment>
                   );
                 })}
             </tr>

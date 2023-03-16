@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import type { NumberedListItemBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
@@ -15,9 +14,7 @@ const NumberedListItem = ({ block }: Props) => {
     <li className="m-1.5">
       <RichText text={block.numbered_list_item.rich_text} />
       {block.children?.map((child) => (
-        <Fragment key={child.id}>
-          {<NotionBlock block={child} key={child.id} />}
-        </Fragment>
+        <NotionBlock block={child} key={child.id} />
       ))}
     </li>
   );

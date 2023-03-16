@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import type { ToggleBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import NotionBlock from "@/components/NotionBlock";
@@ -12,16 +11,16 @@ type Props = {
 
 const Toggle = ({ block }: Props) => {
   return (
-    <details className="my-4 rounded-md border-2 border-gray-200 p-2">
+    <details className="my-4 rounded-md border drop-shadow border-gray-200 py-2 px-4">
       <summary className="cursor-pointer">
-        <RichText text={block.toggle.rich_text} />
+        <span className="ml-2">
+          <RichText text={block.toggle.rich_text} />
+        </span>
       </summary>
       {block.children && (
         <div className="ml-4">
           {block.children.map((child) => (
-            <Fragment key={child.id}>
-              {<NotionBlock block={child} key={child.id} />}
-            </Fragment>
+            <NotionBlock block={child} key={child.id} />
           ))}
         </div>
       )}
