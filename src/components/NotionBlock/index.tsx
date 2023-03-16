@@ -22,6 +22,7 @@ import Table from "./Blocks/Table";
 import ToDo from "./Blocks/ToDo";
 import ToDoList from "./Blocks/ToDoList";
 import Toggle from "./Blocks/Toggle";
+import Video from "./Blocks/Video";
 
 type Props = {
   block: ExpandedBlockObjectResponse;
@@ -72,6 +73,8 @@ const NotionBlock = ({ block }: Props) => {
       return <ToDoList block={block} />;
     case "toggle":
       return <Toggle block={block} />;
+    case "video":
+      return <Video block={block} />;
     default:
       return null;
   }
