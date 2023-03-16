@@ -5,10 +5,10 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 h-12 bg-white p-4 md:h-20 md:p-8">
+    <header className="sticky top-0 z-10 h-12 bg-white px-4 py-2 md:h-20 md:px-8 md:py-6">
       <Link href="/">
         <Image
-          src="/next.svg"
+          src="/logo.svg"
           alt="logo"
           priority
           width={700}
