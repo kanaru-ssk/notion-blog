@@ -25,9 +25,10 @@ export const getBlocks = async (
   return await Promise.all(childBlocks).then((blocks) => {
     return blocks.reduce(
       (result: ExpandedBlockObjectResponse[], currentBlock) => {
-        const previousBlock = result[result.length - 1];
+        const previousBlock =
+          0 <= result.length - 1 ? result[result.length - 1] : null;
         if (currentBlock.type === "bulleted_list_item") {
-          if (previousBlock.type === "bulleted_list") {
+          if (previousBlock && previousBlock.type === "bulleted_list") {
             previousBlock.bulleted_list.children?.push(currentBlock);
           } else {
             result.push({
@@ -37,7 +38,7 @@ export const getBlocks = async (
             });
           }
         } else if (currentBlock.type === "numbered_list_item") {
-          if (previousBlock.type === "numbered_list") {
+          if (previousBlock && previousBlock.type === "numbered_list") {
             previousBlock.numbered_list.children?.push(currentBlock);
           } else {
             result.push({
@@ -47,7 +48,7 @@ export const getBlocks = async (
             });
           }
         } else if (currentBlock.type === "to_do") {
-          if (previousBlock.type === "to_do_list") {
+          if (previousBlock && previousBlock.type === "to_do_list") {
             previousBlock.to_do_list.children?.push(currentBlock);
           } else {
             result.push({
