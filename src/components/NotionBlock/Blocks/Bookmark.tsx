@@ -3,20 +3,33 @@
 import Link from "next/link";
 import type { BookmarkBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
+import Image from "next/image";
+import { richTextToPlainText } from "@/libs/notion";
 
 type Props = {
   block: BlockWithChildren<BookmarkBlockObjectResponse>;
 };
 
 const Bookmark = ({ block }: Props) => {
+  const { url, caption } = block.bookmark;
   return (
-    <Link
-      href={block.bookmark.url}
-      target="_brank"
-      className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-    >
-      {block.bookmark.url}
-    </Link>
+    <figure className="my-5">
+      <Link
+        href={url}
+        passHref
+        className="inline-block w-full truncate font-medium text-blue-600 dark:text-blue-500"
+      >
+        <span className="group flex w-full items-center gap-2">
+          <Image src="clip-icon.svg" alt="clip-icon" width={16} height={16} />
+          <span className=" shrink truncate group-hover:underline">{url}</span>
+          {caption && (
+            <figcaption className="shrink-0 text-xs text-gray-400">
+              {richTextToPlainText(caption)}
+            </figcaption>
+          )}
+        </span>
+      </Link>
+    </figure>
   );
 };
 
