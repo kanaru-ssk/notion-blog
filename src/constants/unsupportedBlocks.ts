@@ -8,7 +8,6 @@ export const unsupportedBlocks = [
   "table_of_contents",
   "link_to_page",
   "embed",
-  "video",
   "pdf",
   "audio",
   "link_preview",
