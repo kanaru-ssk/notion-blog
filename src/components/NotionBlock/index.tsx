@@ -3,6 +3,7 @@
 import Bookmark from "./Bookmark";
 import BulletedList from "./BulletedList";
 import BulletedListItem from "./BulletedListItem";
+import Callout from "./Callout";
 import Code from "./Code";
 import Column from "./Column";
 import ColumnList from "./ColumnList";
@@ -65,6 +66,8 @@ const NotionBlock = ({ block }: Props) => {
       return <Bookmark block={block} />;
     case "table":
       return <Table block={block} />;
+    case "callout":
+      return <Callout block={block} />;
     case "column_list":
       return <ColumnList block={block} />;
     case "column":
