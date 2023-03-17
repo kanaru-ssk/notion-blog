@@ -1,6 +1,6 @@
 import type { GetPageResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { Post } from "@/types/notion";
-import { defaultSeo } from "@/constants/defaultSeo";
+import { defaultMetadata } from "@/constants/defaultMetadata";
 import { richTextToPlainText } from "./richTextToPlainText";
 
 export const pageResponseToPost = (value: GetPageResponse): Post | null => {
@@ -28,7 +28,7 @@ export const pageResponseToPost = (value: GetPageResponse): Post | null => {
     value.properties.Image?.type === "files" &&
     value.properties.Image.files[0]?.type === "file"
       ? value.properties.Image.files[0].file.url
-      : defaultSeo.image;
+      : defaultMetadata.image;
 
   return {
     id: value.id,

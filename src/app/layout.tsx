@@ -1,9 +1,10 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { defaultMetadata } from "@/constants/defaultMetadata";
 import "@/styles/globals.css";
 
 export const metadata = {
-  icons: "/favicon.svg",
+  icons: defaultMetadata.icon,
 };
 
 type Props = {
