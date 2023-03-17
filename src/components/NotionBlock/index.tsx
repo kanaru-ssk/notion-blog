@@ -9,6 +9,7 @@ import Code from "./Blocks/Code";
 import Column from "./Blocks/Column";
 import ColumnList from "./Blocks/ColumnList";
 import Divider from "./Blocks/Divider";
+import Embed from "./Blocks/Embed";
 import File from "./Blocks/File";
 import Heading1 from "./Blocks/Heading1";
 import Heading2 from "./Blocks/Heading2";
@@ -46,6 +47,8 @@ const NotionBlock = ({ block }: Props) => {
       return <ColumnList block={block} />;
     case "divider":
       return <Divider />;
+    case "embed":
+      return <Embed block={block} />;
     case "file":
       return <File block={block} />;
     case "heading_1":

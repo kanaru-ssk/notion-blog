@@ -28,7 +28,7 @@ const Video = ({ block }: Props) => {
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            className="h-40 w-72 md:h-52 md:w-96"
+            className="h-40 w-72 sm:h-52 sm:w-96"
           ></iframe>
         </div>
       );
