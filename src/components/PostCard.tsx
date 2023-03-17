@@ -9,16 +9,16 @@ type Props = {
 };
 
 const PostCard = ({ post }: Props) => {
-  if (post.isNotFound) return null;
   return (
     <li className="my-4 h-24 w-full rounded-xl bg-white duration-150 hover:-translate-y-1 hover:drop-shadow-md md:my-8 md:h-48">
-      <Link href={`/${post.id}`}>
+      <Link href={`/${post.slug}`}>
         <div className="flex">
           <Image
             src={post.coverImageSrc}
             alt="opg-image"
             width={256}
             height={144}
+            priority
             className="h-24 w-32 rounded-l-xl object-cover md:h-48 md:w-64"
           />
           <article className="relative flex-1 px-4 py-2 md:py-4">

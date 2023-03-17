@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { BookmarkBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import Image from "next/image";
 import type { BlockWithChildren } from "@/types/notion";
-import { richTextToPlainText } from "@/libs/notion";
+import { richTextToPlainText } from "@/libs/notion/richTextToPlainText";
 
 type Props = {
   block: BlockWithChildren<BookmarkBlockObjectResponse>;

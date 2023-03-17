@@ -2,7 +2,7 @@
 
 import NextImage from "next/image";
 import type { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { richTextToPlainText } from "@/libs/notion";
+import { richTextToPlainText } from "@/libs/notion/richTextToPlainText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {

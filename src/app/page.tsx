@@ -1,14 +1,17 @@
 import PostCard from "@/components/PostCard";
-import { getDatabase } from "@/libs/notion";
+import { defaultSeo } from "@/constants/defaultSeo";
+import { getDatabase } from "@/libs/notion/getDatabase";
 
 export const metadata = {
-  title: "notion-blog",
-  description: "created by notion api and next js",
+  title: defaultSeo.title,
+  description: defaultSeo.description,
+  openGraph: { images: defaultSeo.coverImageSrc },
+  twitter: { images: defaultSeo.coverImageSrc, card: "summary" },
 };
 
 const Home = async () => {
   const posts = await getDatabase({
-    database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE,
+    database_id: process.env.NOTION_DATABASE,
     sorts: [
       {
         timestamp: "created_time",

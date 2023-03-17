@@ -3,17 +3,18 @@ import type { Post } from "@/types/notion";
 import { defaultSeo } from "@/constants/defaultSeo";
 import { richTextToPlainText } from "./richTextToPlainText";
 
-export const pageResponseToPost = (value: GetPageResponse): Post => {
-  if (!("properties" in value))
-    return {
-      id: value.id,
-      isNotFound: true,
-    };
+export const pageResponseToPost = (value: GetPageResponse): Post | null => {
+  if (!("properties" in value)) return null;
 
   const title =
     value.properties.Title?.type === "title"
       ? richTextToPlainText(value.properties.Title.title)
       : "No Title";
+  const slug =
+    value.properties.Slug?.type === "rich_text" &&
+    value.properties.Slug.rich_text.length !== 0
+      ? richTextToPlainText(value.properties.Slug.rich_text)
+      : value.id;
   const description =
     value.properties.Description?.type === "rich_text"
       ? richTextToPlainText(value.properties.Description.rich_text)
@@ -31,8 +32,8 @@ export const pageResponseToPost = (value: GetPageResponse): Post => {
 
   return {
     id: value.id,
-    isNotFound: false,
     title,
+    slug,
     description,
     createdDate,
     coverImageSrc,

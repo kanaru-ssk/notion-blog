@@ -5,19 +5,14 @@ import type {
   ToDoBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
-export type Post =
-  | {
-      id: string;
-      isNotFound: false;
-      title: string;
-      description: string;
-      createdDate: string;
-      coverImageSrc: string;
-    }
-  | {
-      id: string;
-      isNotFound: true;
-    };
+export type Post = {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  createdDate: string;
+  coverImageSrc: string;
+};
 
 export type BulletedListBlockObjectResponse = {
   id: string;

@@ -30,8 +30,8 @@ pnpm install
 
 ```
 // .env.local
-NEXT_PUBLIC_NOTION_TOKEN="your-notion-api-key"
-NEXT_PUBLIC_NOTION_DATABASE="your-notion-database-id"
+NOTION_TOKEN="your-notion-api-key"
+NOTION_DATABASE="your-notion-database-id"
 ```
 
 5. Start the development server:
