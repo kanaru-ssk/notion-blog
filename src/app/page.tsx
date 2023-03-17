@@ -5,8 +5,8 @@ import { getDatabase } from "@/libs/notion/getDatabase";
 export const metadata = {
   title: defaultSeo.title,
   description: defaultSeo.description,
-  openGraph: { images: defaultSeo.coverImageSrc },
-  twitter: { images: defaultSeo.coverImageSrc, card: "summary" },
+  openGraph: { images: defaultSeo.image },
+  twitter: { images: defaultSeo.image, card: "summary" },
 };
 
 const Home = async () => {

@@ -41,8 +41,8 @@ export const generateMetadata = async ({
   return {
     title: post.title,
     description: post.description,
-    openGraph: { images: post.coverImageSrc },
-    twitter: { images: post.coverImageSrc, card: "summary" },
+    openGraph: { images: post.image },
+    twitter: { images: post.image, card: "summary" },
   };
 };
 

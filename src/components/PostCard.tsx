@@ -14,7 +14,7 @@ const PostCard = ({ post }: Props) => {
       <Link href={`/${post.slug}`}>
         <div className="flex">
           <Image
-            src={post.coverImageSrc}
+            src={post.image}
             alt="opg-image"
             width={256}
             height={144}

@@ -11,7 +11,7 @@ export type Post = {
   slug: string;
   description: string;
   date: string;
-  coverImageSrc: string;
+  image: string;
 };
 
 export type BulletedListBlockObjectResponse = {
