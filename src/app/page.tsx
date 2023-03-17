@@ -10,14 +10,16 @@ export const metadata = {
 };
 
 const Home = async () => {
-  const posts = await getDatabase({
-    database_id: process.env.NOTION_DATABASE,
-    sorts: [
-      {
-        timestamp: "created_time",
-        direction: "descending",
-      },
-    ],
+  const posts = (
+    await getDatabase({
+      database_id: process.env.NOTION_DATABASE,
+    })
+  ).sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    if (dateA === dateB) return 0;
+    if (dateA < dateB) return 1;
+    return -1;
   });
 
   return (

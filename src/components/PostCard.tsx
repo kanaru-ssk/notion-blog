@@ -29,7 +29,7 @@ const PostCard = ({ post }: Props) => {
               <p>{post.description}</p>
             </div>
             <p className="absolute bottom-2 right-4 text-xs text-gray-400 md:bottom-4">
-              {post.createdDate}
+              {post.date}
             </p>
           </article>
         </div>

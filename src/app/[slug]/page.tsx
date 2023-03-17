@@ -11,12 +11,6 @@ type Props = {
 const PostPage = async ({ params }: Props) => {
   const posts = await getDatabase({
     database_id: process.env.NOTION_DATABASE,
-    sorts: [
-      {
-        timestamp: "created_time",
-        direction: "descending",
-      },
-    ],
   });
   const post = posts.find((post) => post.slug === params.slug);
   if (!post) return notFound();
@@ -40,12 +34,6 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const posts = await getDatabase({
     database_id: process.env.NOTION_DATABASE,
-    sorts: [
-      {
-        timestamp: "created_time",
-        direction: "descending",
-      },
-    ],
   });
   const post = posts.find((post) => post.slug === params.slug);
   if (!post) return notFound();
@@ -61,12 +49,6 @@ export const generateMetadata = async ({
 export const generateStaticParams = async () => {
   const posts = await getDatabase({
     database_id: process.env.NOTION_DATABASE,
-    sorts: [
-      {
-        timestamp: "created_time",
-        direction: "descending",
-      },
-    ],
   });
 
   return posts.map((post) => {

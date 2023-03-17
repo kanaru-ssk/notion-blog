@@ -10,7 +10,7 @@ export type Post = {
   title: string;
   slug: string;
   description: string;
-  createdDate: string;
+  date: string;
   coverImageSrc: string;
 };
 

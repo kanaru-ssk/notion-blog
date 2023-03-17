@@ -19,10 +19,10 @@ export const pageResponseToPost = (value: GetPageResponse): Post | null => {
     value.properties.Description?.type === "rich_text"
       ? richTextToPlainText(value.properties.Description.rich_text)
       : "";
-  const createdDate =
-    (value.properties.CreateDate?.type === "date" &&
-      value.properties.CreateDate.date &&
-      new Date(value.properties.CreateDate.date.start).toLocaleDateString()) ||
+  const date =
+    (value.properties.Date?.type === "date" &&
+      value.properties.Date.date &&
+      new Date(value.properties.Date.date.start).toLocaleDateString()) ||
     new Date(value.created_time).toLocaleDateString();
   const coverImageSrc =
     value.properties.Image?.type === "files" &&
@@ -35,7 +35,7 @@ export const pageResponseToPost = (value: GetPageResponse): Post | null => {
     title,
     slug,
     description,
-    createdDate,
+    date,
     coverImageSrc,
   };
 };
