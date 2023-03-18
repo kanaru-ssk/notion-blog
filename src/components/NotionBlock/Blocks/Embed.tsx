@@ -28,7 +28,15 @@ const Embed = ({ block }: Props) => {
   if (platform === "twitter") return <Twitter url={url} />;
   if (platform === "tiktok") return <TikTok url={url} />;
 
-  return <>{url}</>;
+  return (
+    <div className="my-5">
+      <iframe
+        src={url}
+        height={500}
+        className="w-full overflow-hidden"
+      ></iframe>
+    </div>
+  );
 };
 
 export default Embed;
