@@ -1,5 +1,3 @@
-"use client";
-
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
 import Audio from "./Blocks/Audio";
 import Bookmark from "./Blocks/Bookmark";

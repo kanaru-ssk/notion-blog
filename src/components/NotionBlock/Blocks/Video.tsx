@@ -1,5 +1,3 @@
-"use client";
-
 import type { VideoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 import YouTube from "./embed/YouTube";

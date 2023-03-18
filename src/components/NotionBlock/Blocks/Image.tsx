@@ -1,5 +1,3 @@
-"use client";
-
 import NextImage from "next/image";
 import type { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { richTextToPlainText } from "@/libs/notion/richTextToPlainText";

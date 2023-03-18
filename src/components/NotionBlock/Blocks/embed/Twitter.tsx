@@ -1,5 +1,3 @@
-"use client";
-
 import Script from "next/script";
 import Link from "next/link";
 
@@ -20,7 +18,7 @@ const Twitter = ({ url }: Props) => {
             View this tweet on Twitter
           </Link>
         </blockquote>
-        <Script async src="https://platform.twitter.com/widgets.js" />
+        <Script async defer src="https://platform.twitter.com/widgets.js" />
       </div>
     );
   return (
@@ -32,7 +30,7 @@ const Twitter = ({ url }: Props) => {
       >
         View on Twitter
       </Link>
-      <Script src="https://platform.twitter.com/widgets.js" />
+      <Script async defer src="https://platform.twitter.com/widgets.js" />
     </div>
   );
 };

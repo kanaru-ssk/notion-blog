@@ -1,5 +1,3 @@
-"use client";
-
 import type { NumberedListItemBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import NotionBlock from "@/components/NotionBlock";
 import RichText from "@/components/RichText";

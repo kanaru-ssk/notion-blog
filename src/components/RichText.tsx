@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import type { RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
 

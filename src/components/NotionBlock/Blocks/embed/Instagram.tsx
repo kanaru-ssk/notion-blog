@@ -1,5 +1,3 @@
-"use client";
-
 import Script from "next/script";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,7 +17,7 @@ const Instagram = ({ url }: Props) => {
       >
         <Skeleton url={url} />
       </blockquote>
-      <Script async src="//www.instagram.com/embed.js" />
+      <Script async defer src="//www.instagram.com/embed.js" />
     </div>
   );
 };

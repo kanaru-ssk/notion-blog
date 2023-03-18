@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import type { Post } from "@/types/notion";
@@ -15,7 +13,7 @@ const PostCard = ({ post }: Props) => {
         <div className="flex">
           <Image
             src={post.image}
-            alt="opg-image"
+            alt="cover-image"
             width={256}
             height={192}
             priority

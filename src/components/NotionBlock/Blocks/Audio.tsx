@@ -1,5 +1,3 @@
-"use client";
-
 import type { AudioBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
 

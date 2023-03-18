@@ -1,5 +1,3 @@
-"use client";
-
 import Script from "next/script";
 
 type Props = {
@@ -16,7 +14,7 @@ const TikTok = ({ url }: Props) => {
       >
         <section></section>
       </blockquote>
-      <Script async src="https://www.tiktok.com/embed.js" />
+      <Script async defer src="https://www.tiktok.com/embed.js" />
     </div>
   );
 };

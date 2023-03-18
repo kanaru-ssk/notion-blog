@@ -1,5 +1,3 @@
-import "server-only";
-
 import type { QueryDatabaseParameters } from "@notionhq/client/build/src/api-endpoints";
 import type { Post } from "@/types/notion";
 import { notion } from "./client";

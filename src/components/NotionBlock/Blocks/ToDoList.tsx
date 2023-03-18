@@ -1,5 +1,3 @@
-"use client";
-
 import NotionBlock from "@/components/NotionBlock";
 import type { ToDoListBlockObjectResponse } from "@/types/notion";
 

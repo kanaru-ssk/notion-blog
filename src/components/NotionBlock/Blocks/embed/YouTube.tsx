@@ -1,8 +1,3 @@
-"use client";
-
-import Script from "next/script";
-import Link from "next/link";
-
 type Props = {
   url: string;
 };

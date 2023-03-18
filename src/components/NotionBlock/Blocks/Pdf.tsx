@@ -1,5 +1,3 @@
-"use client";
-
 import type { PdfBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import Link from "next/link";
 import type { BlockWithChildren } from "@/types/notion";

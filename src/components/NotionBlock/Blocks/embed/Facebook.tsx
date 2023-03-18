@@ -1,7 +1,5 @@
-"use client";
-
 import Script from "next/script";
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useReducer, useRef } from "react";
 import { useMutationObserver } from "@/hooks/useMutationObserver";
 
 type Props = {
@@ -10,11 +8,7 @@ type Props = {
 
 const Facebook = ({ url }: Props) => {
   const targetRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState<number>(0);
   const [isLoading, onLoaded] = useReducer(() => false, true);
-  useEffect(() => {
-    if (targetRef.current) setWidth(targetRef.current.clientWidth);
-  }, [targetRef]);
   useMutationObserver({
     ref: targetRef,
     callback: onLoaded,
@@ -27,16 +21,13 @@ const Facebook = ({ url }: Props) => {
       <div
         className="fb-post min-h-[328px]"
         data-href={url}
-        data-width={width}
         ref={targetRef}
       ></div>
-      {width !== 0 && (
-        <Script
-          async
-          defer
-          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"
-        />
-      )}
+      <Script
+        async
+        defer
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"
+      />
     </div>
   );
 };
@@ -45,7 +36,7 @@ export default Facebook;
 
 const Skeleton = () => {
   return (
-    <div className="absolute top-0 w-full bg-white drop-shadow">
+    <div className="absolute top-0 w-full min-w-[350px] max-w-[750px] bg-white drop-shadow">
       <div className="animate-pulse">
         <div className="h-64 bg-gray-200"></div>
         <div className="flex gap-2 p-4">

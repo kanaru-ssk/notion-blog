@@ -1,5 +1,3 @@
-"use client";
-
 import type { QuoteBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { richTextToPlainText } from "@/libs/notion/richTextToPlainText";
 import type { BlockWithChildren } from "@/types/notion";
