@@ -10,7 +10,7 @@ const Facebook = ({ url }: Props) => {
           url
         )}&show_text=true`}
         height={534}
-        className="w-full  overflow-hidden"
+        className="w-full overflow-hidden"
         allowFullScreen={true}
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
       ></iframe>
