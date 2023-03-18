@@ -2,10 +2,10 @@
 
 import type { EmbedBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
-import Instagram from "./enbed/Instagram";
-import Twitter from "./enbed/Twitter";
-import TikTok from "./enbed/TikTok";
-import Facebook from "./enbed/Facebook";
+import Instagram from "./embed/Instagram";
+import Twitter from "./embed/Twitter";
+import TikTok from "./embed/TikTok";
+import Facebook from "./embed/Facebook";
 
 type Props = {
   block: BlockWithChildren<EmbedBlockObjectResponse>;
@@ -13,21 +13,11 @@ type Props = {
 
 const Embed = ({ block }: Props) => {
   const { url } = block.embed;
-  const platform = url.includes("instagram.com")
-    ? "instagram"
-    : url.includes("twitter.com")
-    ? "twitter"
-    : url.includes("tiktok.com")
-    ? "tiktok"
-    : url.includes("facebook.com")
-    ? "facebook"
-    : "other";
 
-  if (platform === "instagram") return <Instagram url={url} />;
-  if (platform === "facebook") return <Facebook url={url} />;
-  if (platform === "twitter") return <Twitter url={url} />;
-  if (platform === "tiktok") return <TikTok url={url} />;
-
+  if (url.includes("instagram.com")) return <Instagram url={url} />;
+  if (url.includes("facebook.com")) return <Facebook url={url} />;
+  if (url.includes("twitter.com")) return <Twitter url={url} />;
+  if (url.includes("tiktok.com")) return <TikTok url={url} />;
   return (
     <div className="my-5">
       <iframe
