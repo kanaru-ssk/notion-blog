@@ -2,6 +2,10 @@
 
 This is a simple blog application built with Next.js, TypeScript, Notion API, and Tailwind CSS. The application fetches data from a Notion database using the Notion API and displays the data on the frontend. It is designed to be easily customizable and extendable, so you can use it as a starting point for your own blog or website.
 
+## Demo Page
+
+https://notion-blog.kanaru.jp/
+
 ## Getting Started
 
 To get started with the project, you will need to follow these steps:
