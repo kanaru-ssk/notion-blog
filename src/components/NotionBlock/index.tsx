@@ -1,6 +1,7 @@
 "use client";
 
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
+import Audio from "./Blocks/Audio";
 import Bookmark from "./Blocks/Bookmark";
 import BulletedList from "./Blocks/BulletedList";
 import BulletedListItem from "./Blocks/BulletedListItem";
@@ -18,6 +19,7 @@ import Image from "./Blocks/Image";
 import NumberedList from "./Blocks/NumberedList";
 import NumberedListItem from "./Blocks/NumberedListItem";
 import Paragraph from "./Blocks/Paragraph";
+import Pdf from "./Blocks/Pdf";
 import Quote from "./Blocks/Quote";
 import Table from "./Blocks/Table";
 import ToDo from "./Blocks/ToDo";
@@ -31,6 +33,8 @@ type Props = {
 
 const NotionBlock = ({ block }: Props) => {
   switch (block.type) {
+    case "audio":
+      return <Audio block={block} />;
     case "bookmark":
       return <Bookmark block={block} />;
     case "bulleted_list":
@@ -66,6 +70,8 @@ const NotionBlock = ({ block }: Props) => {
       return <NumberedListItem block={block} />;
     case "paragraph":
       return <Paragraph block={block} />;
+    case "pdf":
+      return <Pdf block={block} />;
     case "quote":
       return <Quote block={block} />;
     case "table":
