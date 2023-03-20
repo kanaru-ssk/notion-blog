@@ -33,17 +33,37 @@ const PostPage: NextPage<Props> = ({ post, blocks }) => {
 export default PostPage;
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  if (!params?.slug)
+    return {
+      notFound: true,
+    };
+
   const posts = await getDatabase({
     database_id: process.env.NOTION_DATABASE,
     filter: {
-      property: "Published",
-      checkbox: {
-        equals: true,
-      },
+      and: [
+        {
+          property: "Published",
+          checkbox: {
+            equals: true,
+          },
+        },
+        {
+          property: "Slug",
+          rich_text: {
+            equals:
+              typeof params.slug === "string" ? params.slug : params.slug[0],
+          },
+        },
+      ],
     },
   });
-  const post = posts.find((post) => post.slug === params?.slug);
-  if (!post) return { notFound: true };
+
+  if (posts.length === 0)
+    return {
+      notFound: true,
+    };
+  const post = posts[0];
   const blocks = await getBlocks({ block_id: post.id, page_size: 100 });
 
   return {
