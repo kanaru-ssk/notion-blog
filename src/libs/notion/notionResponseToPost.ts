@@ -2,7 +2,7 @@ import type { GetPageResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { Post } from "@/types/notion";
 import { richTextToPlainText } from "./richTextToPlainText";
 
-export const pageResponseToPost = (value: GetPageResponse): Post | null => {
+export const notionResponseToPost = (value: GetPageResponse): Post | null => {
   if (!("properties" in value)) return null;
 
   const title =

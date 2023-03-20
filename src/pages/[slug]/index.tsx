@@ -1,8 +1,12 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Head from "@/components/Head";
 import NotionBlock from "@/components/NotionBlock";
-import { getBlocks } from "@/libs/notion/getBlocks";
-import { getDatabase } from "@/libs/notion/getDatabase";
+import {
+  notion,
+  getBlocks,
+  notionResponseToPost,
+  getAllPosts,
+} from "@/libs/notion";
 import { ExpandedBlockObjectResponse, Post } from "@/types/notion";
 
 type Props = {
@@ -38,7 +42,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       notFound: true,
     };
 
-  const posts = await getDatabase({
+  const res = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE,
     filter: {
       and: [
@@ -58,7 +62,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       ],
     },
   });
-
+  const posts = res.results
+    .map(notionResponseToPost)
+    .filter((v): v is Post => Boolean(v));
   if (posts.length === 0)
     return {
       notFound: true,
@@ -75,17 +81,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getDatabase({
-    database_id: process.env.NOTION_DATABASE,
-    filter: {
-      property: "Published",
-      checkbox: {
-        equals: true,
-      },
-    },
-  });
+  const posts = await getAllPosts();
   const paths = posts.map((post) => {
-    return `/${post.slug}`;
+    return { params: { slug: post.slug } };
   });
   return { paths, fallback: false };
 };
