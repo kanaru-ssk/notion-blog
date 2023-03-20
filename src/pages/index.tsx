@@ -2,7 +2,6 @@ import type { NextPage, GetStaticProps } from "next";
 import Head from "@/components/Head";
 import PostCard from "@/components/PostCard";
 import { getDatabase } from "@/libs/notion/getDatabase";
-import { defaultMetadata } from "@/constants/defaultMetadata";
 import { Post } from "@/types/notion";
 
 type Props = {
@@ -27,22 +26,20 @@ const Home: NextPage<Props> = ({ posts }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts = (
-    await getDatabase({
-      database_id: process.env.NOTION_DATABASE,
-      filter: {
-        property: "Published",
-        checkbox: {
-          equals: true,
-        },
+  const posts = await getDatabase({
+    database_id: process.env.NOTION_DATABASE,
+    filter: {
+      property: "Published",
+      checkbox: {
+        equals: true,
       },
-    })
-  ).sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    if (dateA === dateB) return 0;
-    if (dateA < dateB) return 1;
-    return -1;
+    },
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+    ],
   });
   return {
     props: {

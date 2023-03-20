@@ -22,7 +22,7 @@ export const pageResponseToPost = (value: GetPageResponse): Post | null => {
     (value.properties.Date?.type === "date" &&
       value.properties.Date.date &&
       new Date(value.properties.Date.date.start).toLocaleDateString()) ||
-    new Date(value.created_time).toLocaleDateString();
+    "";
   const image =
     value.properties.Image?.type === "files" &&
     value.properties.Image.files[0]?.type === "file"
