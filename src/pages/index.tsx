@@ -1,5 +1,5 @@
-import Head from "next/head";
 import type { NextPage, GetStaticProps } from "next";
+import Head from "@/components/Head";
 import PostCard from "@/components/PostCard";
 import { getDatabase } from "@/libs/notion/getDatabase";
 import { defaultMetadata } from "@/constants/defaultMetadata";
@@ -12,15 +12,7 @@ type Props = {
 const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
-      <Head>
-        <meta property="og:url" content={defaultMetadata.url} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content={defaultMetadata.image} />
-        <meta property="og:title" content={defaultMetadata.title} />
-        <meta property="og:description" content={defaultMetadata.description} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="description" content={defaultMetadata.description} />
-      </Head>
+      <Head />
       <div className="mx-auto max-w-3xl py-20 px-4">
         <ul>
           {posts.map((post) => {
