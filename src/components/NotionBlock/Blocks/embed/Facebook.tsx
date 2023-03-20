@@ -7,22 +7,21 @@ type Props = {
 };
 
 const Facebook = ({ url }: Props) => {
-  const targetRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [isLoading, onLoaded] = useReducer(() => false, true);
   useMutationObserver({
-    ref: targetRef,
-    callback: onLoaded,
+    ref: ref,
+    callback: () =>
+      ref.current
+        ?.getElementsByTagName("iframe")[0]
+        .addEventListener("load", onLoaded),
     options: { childList: true },
   });
 
   return (
     <div className="relative my-5">
       {isLoading && <Skeleton />}
-      <div
-        className="fb-post min-h-[328px]"
-        data-href={url}
-        ref={targetRef}
-      ></div>
+      <div className="fb-post min-h-[328px]" data-href={url} ref={ref}></div>
       <Script
         async
         defer
