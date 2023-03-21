@@ -1,22 +1,22 @@
 import type { GetPageResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { Post } from "@/types/notion";
-import { richTextToPlainText } from "./richTextToPlainText";
+import { richTextToString } from "./richTextToString";
 
 export const notionResponseToPost = (value: GetPageResponse): Post | null => {
   if (!("properties" in value)) return null;
 
   const title =
     value.properties.Title?.type === "title"
-      ? richTextToPlainText(value.properties.Title.title)
+      ? richTextToString(value.properties.Title.title)
       : "No Title";
   const slug =
     value.properties.Slug?.type === "rich_text" &&
     value.properties.Slug.rich_text.length !== 0
-      ? richTextToPlainText(value.properties.Slug.rich_text)
+      ? richTextToString(value.properties.Slug.rich_text)
       : value.id;
   const description =
     value.properties.Description?.type === "rich_text"
-      ? richTextToPlainText(value.properties.Description.rich_text)
+      ? richTextToString(value.properties.Description.rich_text)
       : "";
   const date =
     (value.properties.Date?.type === "date" &&

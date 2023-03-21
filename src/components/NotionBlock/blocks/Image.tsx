@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 import type { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { richTextToPlainText } from "@/libs/notion";
+import { richTextToString } from "@/libs/notion";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
@@ -13,7 +13,7 @@ const Image = ({ block }: Props) => {
       ? block.image.external.url
       : block.image.file.url;
   const caption = block.image.caption
-    ? richTextToPlainText(block.image.caption)
+    ? richTextToString(block.image.caption)
     : "";
   return (
     <figure className="my-6">

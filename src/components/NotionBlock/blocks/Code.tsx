@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { CodeBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { richTextToPlainText } from "@/libs/notion";
+import { richTextToString } from "@/libs/notion";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const Code = ({ block }: Props) => {
-  const plaintext = richTextToPlainText(block.code.rich_text);
+  const plaintext = richTextToString(block.code.rich_text);
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopyClick = () => {

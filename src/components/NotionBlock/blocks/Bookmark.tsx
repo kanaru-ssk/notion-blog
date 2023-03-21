@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { BookmarkBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import Image from "next/image";
 import type { BlockWithChildren } from "@/types/notion";
-import { richTextToPlainText } from "@/libs/notion";
+import { richTextToString } from "@/libs/notion";
 
 type Props = {
   block: BlockWithChildren<BookmarkBlockObjectResponse>;
@@ -22,7 +22,7 @@ const Bookmark = ({ block }: Props) => {
           <span className=" shrink truncate group-hover:underline">{url}</span>
           {caption && (
             <figcaption className="shrink-0 text-xs text-gray-400">
-              {richTextToPlainText(caption)}
+              {richTextToString(caption)}
             </figcaption>
           )}
         </span>

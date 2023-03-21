@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { FileBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { richTextToPlainText } from "@/libs/notion";
+import { richTextToString } from "@/libs/notion";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
@@ -16,7 +16,7 @@ const File = ({ block }: Props) => {
   const splitSourceArray = src_file.split("/");
   const lastElementInArray = splitSourceArray[splitSourceArray.length - 1];
   const caption_file = block.file.caption
-    ? richTextToPlainText(block.file.caption)
+    ? richTextToString(block.file.caption)
     : "";
   return (
     <figure className="my-5">
