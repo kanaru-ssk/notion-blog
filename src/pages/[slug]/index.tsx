@@ -23,11 +23,13 @@ const PostPage: NextPage<Props> = ({ post, prevPost, nextPost, blocks }) => {
       />
       <div className="bg-gray-200">
         <div className="mx-auto max-w-3xl md:py-20 md:px-4">
-          <article className="bg-white px-4 py-12 md:px-12">
+          <article className="rounded-md bg-white px-4 py-12 md:px-12">
             {blocks.map((block) => (
               <NotionBlock block={block} key={block.id} />
             ))}
-            <FooterNav prevPost={prevPost} nextPost={nextPost} />
+            <div className="mt-20">
+              <FooterNav prevPost={prevPost} nextPost={nextPost} />
+            </div>
           </article>
         </div>
       </div>
