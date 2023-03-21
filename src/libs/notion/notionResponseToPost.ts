@@ -19,10 +19,9 @@ export const notionResponseToPost = (value: GetPageResponse): Post | null => {
       ? richTextToString(value.properties.Description.rich_text)
       : "";
   const date =
-    (value.properties.Date?.type === "date" &&
-      value.properties.Date.date &&
-      new Date(value.properties.Date.date.start).toLocaleDateString()) ||
-    "";
+    value.properties.Date?.type === "date" && value.properties.Date.date
+      ? value.properties.Date.date.start
+      : "";
   const image =
     value.properties.Image?.type === "files" &&
     value.properties.Image.files[0]?.type === "file"
