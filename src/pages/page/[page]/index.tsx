@@ -18,9 +18,11 @@ const Page: NextPage<Props> = ({ posts, page }) => {
   return (
     <>
       <Head />
-      <div className="mx-auto max-w-3xl py-20 px-4">
-        <PostCards posts={posts} />
-        <PageNation {...page} />
+      <div className="bg-gray-200">
+        <div className="mx-auto max-w-3xl py-20 px-4">
+          <PostCards posts={posts} />
+          <PageNation {...page} />
+        </div>
       </div>
     </>
   );

@@ -7,7 +7,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Header />
-      <main className="bg-gray-200">
+      <main>
         <Component {...pageProps} />
       </main>
       <Footer />

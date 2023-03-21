@@ -23,12 +23,14 @@ const PostPage: NextPage<Props> = ({ post, blocks }) => {
         image={post.image}
         path={post.slug}
       />
-      <div className="mx-auto max-w-3xl md:py-20 md:px-4">
-        <article className="mx-auto max-w-3xl bg-white px-4 py-12 md:rounded-xl md:px-12">
-          {blocks.map((block) => (
-            <NotionBlock block={block} key={block.id} />
-          ))}
-        </article>
+      <div className="bg-gray-200">
+        <div className="mx-auto max-w-3xl md:py-20 md:px-4">
+          <article className="mx-auto max-w-3xl bg-white px-4 py-12 md:rounded-xl md:px-12">
+            {blocks.map((block) => (
+              <NotionBlock block={block} key={block.id} />
+            ))}
+          </article>
+        </div>
       </div>
     </>
   );
