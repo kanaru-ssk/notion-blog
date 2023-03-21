@@ -1,6 +1,6 @@
 import type { ToggleBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import NotionBlock from "@/components/NotionBlock";
-import RichText from "@/components/RichText";
+import RichText from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {

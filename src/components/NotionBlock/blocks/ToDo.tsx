@@ -1,5 +1,5 @@
 import type { ToDoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import RichText from "@/components/RichText";
+import RichText from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {

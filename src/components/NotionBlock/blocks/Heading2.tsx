@@ -1,5 +1,5 @@
 import type { Heading2BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import RichText from "@/components/RichText";
+import RichText from "@/components/NotionBlock/blocks/RichText";
 
 type Props = {
   block: Heading2BlockObjectResponse;
