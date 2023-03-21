@@ -5,11 +5,12 @@ type Props = {
 };
 
 const TikTok = ({ url }: Props) => {
+  const TikTokVideoId = url.match(/\/video\/(\d+)/)?.[1];
   return (
     <div className="my-5">
       <blockquote
         cite={url}
-        data-video-id="7073235879690505514"
+        data-video-id={TikTokVideoId}
         className="tiktok-embed min-w[325px] max-w-[605px]"
       >
         <section></section>
