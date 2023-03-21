@@ -3,7 +3,7 @@ import { RefObject, useEffect } from "react";
 type Props<T> = {
   ref: RefObject<T>;
   callback: MutationCallback;
-  options?: MutationObserverInit | undefined;
+  options?: MutationObserverInit;
 };
 
 export const useMutationObserver = <T extends HTMLElement>({
