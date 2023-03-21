@@ -42,11 +42,7 @@ const PageNation = ({ pageIndex, numPages }: Props) => {
       }
     });
   }
-  return (
-    <div>
-      <ul className="mt-12 flex flex-wrap justify-center gap-3">{items}</ul>
-    </div>
-  );
+  return <ul className="mt-12 flex flex-wrap justify-center gap-3">{items}</ul>;
 };
 
 export default PageNation;
@@ -54,6 +50,7 @@ export default PageNation;
 type PageNationItemProps = {
   index: number;
 };
+
 const PageNationItem = ({ index }: PageNationItemProps) => {
   return (
     <li>
