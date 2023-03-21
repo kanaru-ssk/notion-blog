@@ -2,7 +2,7 @@ import type {
   PageObjectResponse,
   PartialPageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
-import { Post } from "@/types/notion";
+import type { Post } from "@/types/notion";
 import { notion } from "./client";
 import { notionResponseToPost } from "./notionResponseToPost";
 

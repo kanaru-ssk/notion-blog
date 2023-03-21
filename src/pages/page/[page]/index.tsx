@@ -2,7 +2,7 @@ import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Head from "@/components/Head";
 import PostCards from "@/components/PostCards";
 import { getAllPosts } from "@/libs/notion";
-import { Post } from "@/types/notion";
+import type { Post } from "@/types/notion";
 import { postsPerPage } from "@/constants/postsPerPage";
 import PageNation from "@/components/PageNation";
 

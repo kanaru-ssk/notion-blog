@@ -7,7 +7,7 @@ import {
   notionResponseToPost,
   getAllPosts,
 } from "@/libs/notion";
-import { ExpandedBlockObjectResponse, Post } from "@/types/notion";
+import type { ExpandedBlockObjectResponse, Post } from "@/types/notion";
 
 type Props = {
   post: Post;
