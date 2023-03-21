@@ -23,7 +23,7 @@ const PostCard = ({ post }: Props) => {
             <h3 className="text-md max-h-12 overflow-hidden font-bold md:max-h-14 md:text-xl">
               {post.title}
             </h3>
-            <div className="hidden max-h-4 overflow-hidden py-2 text-gray-500 md:block md:max-h-20">
+            <div className="hidden max-h-20 overflow-hidden py-2 text-gray-400 md:block">
               <p>{post.description}</p>
             </div>
             <p className="absolute bottom-2 right-4 text-xs text-gray-400 md:bottom-4">
