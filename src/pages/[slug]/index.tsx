@@ -1,9 +1,9 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import FooterNav from "@/components/FooterNav";
 import Head from "@/components/Head";
 import NotionBlock from "@/components/NotionBlock";
 import { getAllBlocks, getAllPosts } from "@/libs/notion";
 import type { ExpandedBlockObjectResponse, Post } from "@/types/notion";
-import FooterNav from "@/components/FooterNav";
 
 type Props = {
   post: Post;

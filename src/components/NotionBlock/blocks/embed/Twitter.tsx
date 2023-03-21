@@ -1,5 +1,5 @@
-import Script from "next/script";
 import Link from "next/link";
+import Script from "next/script";
 import { useReducer, useRef } from "react";
 import { useMutationObserver } from "@/hooks/useMutationObserver";
 

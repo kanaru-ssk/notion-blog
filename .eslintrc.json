@@ -11,7 +11,10 @@
           "parent",
           "sibling",
           "index"
-        ]
+        ],
+        "alphabetize": {
+          "order": "asc"
+        }
       }
     ]
   }

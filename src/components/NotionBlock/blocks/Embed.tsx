@@ -1,9 +1,9 @@
 import type { EmbedBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
-import Instagram from "./embed/Instagram";
-import Twitter from "./embed/Twitter";
-import TikTok from "./embed/TikTok";
 import Facebook from "./embed/Facebook";
+import Instagram from "./embed/Instagram";
+import TikTok from "./embed/TikTok";
+import Twitter from "./embed/Twitter";
 
 type Props = {
   block: BlockWithChildren<EmbedBlockObjectResponse>;

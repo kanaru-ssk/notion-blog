@@ -1,5 +1,5 @@
-import NextImage from "next/image";
 import type { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import NextImage from "next/image";
 import { richTextToString } from "@/libs/notion";
 import type { BlockWithChildren } from "@/types/notion";
 
