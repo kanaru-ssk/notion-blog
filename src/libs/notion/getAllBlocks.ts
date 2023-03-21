@@ -1,23 +1,33 @@
 import type {
   BlockObjectResponse,
-  ListBlockChildrenParameters,
+  PartialBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import { unsupportedBlocks } from "@/constants/unsupportedBlocks";
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
 import { notion } from "./client";
 
-export const getBlocks = async (
-  params: ListBlockChildrenParameters
+export const getAllBlocks = async (
+  blockId: string
 ): Promise<ExpandedBlockObjectResponse[]> => {
-  const { results } = await notion.blocks.children.list(params);
+  const allResults: (BlockObjectResponse | PartialBlockObjectResponse)[] = [];
+
+  let hasMore = true;
+  while (hasMore) {
+    const res = await notion.blocks.children.list({
+      block_id: blockId,
+      page_size: 100,
+    });
+    hasMore = res.has_more;
+    allResults.push(...res.results);
+  }
 
   // Fetches all child blocks recursively - be mindful of rate limits if you have large amounts of nested blocks
   // See https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
-  const childBlocks = results
+  const childBlocks = allResults
     .filter((result): result is BlockObjectResponse => "type" in result)
     .map(async (block) => {
       if (!unsupportedBlocks.includes(block.type) && block.has_children) {
-        const children = await getBlocks({ block_id: block.id });
+        const children = await getAllBlocks(block.id);
         return { ...block, children };
       }
       return block;

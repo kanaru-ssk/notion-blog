@@ -3,7 +3,7 @@ import Head from "@/components/Head";
 import NotionBlock from "@/components/NotionBlock";
 import {
   notion,
-  getBlocks,
+  getAllBlocks,
   notionResponseToPost,
   getAllPosts,
 } from "@/libs/notion";
@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     };
 
   const post = posts[0];
-  const blocks = await getBlocks({ block_id: post.id, page_size: 100 });
+  const blocks = await getAllBlocks(post.id);
   return {
     props: {
       post,

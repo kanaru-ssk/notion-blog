@@ -1,5 +1,5 @@
 export * from "./client";
 export * from "./getAllPosts";
-export * from "./getBlocks";
+export * from "./getAllBlocks";
 export * from "./notionResponseToPost";
 export * from "./richTextToString";
