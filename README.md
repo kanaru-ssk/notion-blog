@@ -36,6 +36,7 @@ pnpm install
 
 ```
 // .env.local
+NEXT_PUBLIC_DOMAIN="http://localhost:3000"
 NOTION_TOKEN="your-notion-api-key"
 NOTION_DATABASE="your-notion-database-id"
 ```
