@@ -19,7 +19,7 @@ const Page: NextPage<Props> = ({ posts, page }) => {
     <>
       <Head />
       <div className="mx-auto max-w-3xl py-20 px-4">
-        <ul>
+        <ul className="flex flex-col gap-4 md:gap-8">
           {posts.map((post) => {
             return <PostCard post={post} key={post.id} />;
           })}
