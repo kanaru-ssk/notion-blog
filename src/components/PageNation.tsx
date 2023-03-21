@@ -6,43 +6,53 @@ type Props = {
 };
 
 const PageNation = ({ pageIndex, numPages }: Props) => {
-  const items: JSX.Element[] = [
-    <span
-      key="pageIndex"
-      className="inline-block w-8 rounded border border-gray-400 bg-gray-100 py-1 text-center text-gray-400"
-    >
-      {pageIndex}
-    </span>,
-  ];
-  if (numPages - pageIndex < 6) {
-    for (let i = pageIndex + 1; i <= numPages; i++) {
-      items.push(<PageNationItem key={i} index={i} />);
-    }
-  } else {
-    const arr = [pageIndex + 1, pageIndex + 2, null, numPages - 1, numPages];
-    arr.forEach((i) => {
-      if (i === null) {
-        items.push(<li key={i}>...</li>);
-      } else {
-        items.push(<PageNationItem key={i} index={i} />);
-      }
-    });
-  }
+  const prevIndexItems: JSX.Element[] = [];
   if (pageIndex < 7) {
     for (let i = pageIndex - 1; 0 < i; i--) {
-      items.unshift(<PageNationItem key={i} index={i} />);
+      prevIndexItems.unshift(<PageNationItem key={i} index={i} />);
     }
   } else {
     const arr = [pageIndex - 1, pageIndex - 2, null, 2, 1];
     arr.forEach((i) => {
       if (i === null) {
-        items.unshift(<li key={i}>...</li>);
+        prevIndexItems.unshift(<li key={i}>...</li>);
       } else {
-        items.unshift(<PageNationItem key={i} index={i} />);
+        prevIndexItems.unshift(<PageNationItem key={i} index={i} />);
       }
     });
   }
-  return <ul className="mt-12 flex flex-wrap justify-center gap-3">{items}</ul>;
+
+  const nextIndexItems: JSX.Element[] = [];
+  if (numPages - pageIndex < 6) {
+    for (let i = pageIndex + 1; i <= numPages; i++) {
+      nextIndexItems.push(<PageNationItem key={i} index={i} />);
+    }
+  } else {
+    const arr = [pageIndex + 1, pageIndex + 2, null, numPages - 1, numPages];
+    arr.forEach((i) => {
+      if (i === null) {
+        nextIndexItems.push(<li key={i}>...</li>);
+      } else {
+        nextIndexItems.push(<PageNationItem key={i} index={i} />);
+      }
+    });
+  }
+
+  return (
+    <ul className="mt-12 flex flex-wrap items-center justify-center gap-3">
+      <li>
+        <ul className="flex gap-3">{prevIndexItems}</ul>
+      </li>
+      <li>
+        <span className="inline-block w-8 rounded border border-gray-400 bg-gray-100 py-1 text-center text-gray-400">
+          {pageIndex}
+        </span>
+      </li>
+      <li>
+        <ul className="flex gap-3">{nextIndexItems}</ul>
+      </li>
+    </ul>
+  );
 };
 
 export default PageNation;
