@@ -3,10 +3,26 @@ import Image from "next/image";
 import type { Post } from "@/types/notion";
 
 type Props = {
+  posts: Post[];
+};
+
+const PostCards = ({ posts }: Props) => {
+  return (
+    <ul className="flex flex-col gap-4 md:gap-8">
+      {posts.map((post) => {
+        return <PostCard post={post} key={post.id} />;
+      })}
+    </ul>
+  );
+};
+
+export default PostCards;
+
+type PostCardProps = {
   post: Post;
 };
 
-const PostCard = ({ post }: Props) => {
+const PostCard = ({ post }: PostCardProps) => {
   return (
     <li className="h-24 bg-white hover:drop-shadow-md md:h-48">
       <Link href={`/${post.slug}`}>
@@ -35,5 +51,3 @@ const PostCard = ({ post }: Props) => {
     </li>
   );
 };
-
-export default PostCard;

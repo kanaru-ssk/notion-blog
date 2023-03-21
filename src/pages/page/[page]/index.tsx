@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Head from "@/components/Head";
-import PostCard from "@/components/PostCard";
+import PostCards from "@/components/PostCards";
 import { getAllPosts } from "@/libs/notion";
 import { Post } from "@/types/notion";
 import { postsPerPage } from "@/constants/postsPerPage";
@@ -19,11 +19,7 @@ const Page: NextPage<Props> = ({ posts, page }) => {
     <>
       <Head />
       <div className="mx-auto max-w-3xl py-20 px-4">
-        <ul className="flex flex-col gap-4 md:gap-8">
-          {posts.map((post) => {
-            return <PostCard post={post} key={post.id} />;
-          })}
-        </ul>
+        <PostCards posts={posts} />
         <PageNation {...page} />
       </div>
     </>
