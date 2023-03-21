@@ -54,6 +54,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = Array.from({ length: numPages }, (_, i) => {
     return { params: { page: (i + 1).toString() } };
   });
-
   return { paths, fallback: false };
 };
