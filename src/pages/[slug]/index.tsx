@@ -1,20 +1,18 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Head from "@/components/Head";
 import NotionBlock from "@/components/NotionBlock";
-import {
-  notion,
-  getAllBlocks,
-  notionResponseToPost,
-  getAllPosts,
-} from "@/libs/notion";
+import { getAllBlocks, getAllPosts } from "@/libs/notion";
 import type { ExpandedBlockObjectResponse, Post } from "@/types/notion";
+import FooterNav from "@/components/FooterNav";
 
 type Props = {
   post: Post;
+  prevPost: Post | null;
+  nextPost: Post | null;
   blocks: ExpandedBlockObjectResponse[];
 };
 
-const PostPage: NextPage<Props> = ({ post, blocks }) => {
+const PostPage: NextPage<Props> = ({ post, prevPost, nextPost, blocks }) => {
   return (
     <>
       <Head
@@ -29,6 +27,7 @@ const PostPage: NextPage<Props> = ({ post, blocks }) => {
             {blocks.map((block) => (
               <NotionBlock block={block} key={block.id} />
             ))}
+            <FooterNav prevPost={prevPost} nextPost={nextPost} />
           </article>
         </div>
       </div>
@@ -41,38 +40,24 @@ export default PostPage;
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   if (!params || typeof params.slug !== "string") return { notFound: true };
 
-  const res = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE,
-    filter: {
-      and: [
-        {
-          property: "Published",
-          checkbox: {
-            equals: true,
-          },
-        },
-        {
-          property: "Slug",
-          rich_text: {
-            equals: params.slug,
-          },
-        },
-      ],
-    },
-  });
-  const posts = res.results
-    .map(notionResponseToPost)
-    .filter((v): v is Post => Boolean(v));
-  if (posts.length === 0)
-    return {
-      notFound: true,
-    };
+  const allPosts = await getAllPosts();
+  const targetPostIndex = allPosts.findIndex((v) => v.slug === params.slug);
+  if (targetPostIndex === -1) return { notFound: true };
 
-  const post = posts[0];
+  const post = allPosts[targetPostIndex];
+  const prevPost =
+    targetPostIndex + 1 < allPosts.length
+      ? allPosts[targetPostIndex + 1]
+      : null;
+  const nextPost =
+    0 <= targetPostIndex - 1 ? allPosts[targetPostIndex - 1] : null;
+
   const blocks = await getAllBlocks(post.id);
   return {
     props: {
       post,
+      prevPost,
+      nextPost,
       blocks,
     },
   };
