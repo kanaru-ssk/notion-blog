@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["s3.us-west-2.amazonaws.com", "picsum.photos"],
+    domains: [
+      "notion-blog.kanaru.jp",
+      "kanaru.jp",
+      "s3.us-west-2.amazonaws.com",
+      "picsum.photos",
+    ],
     formats: ["image/avif", "image/webp"],
   },
   async rewrites() {
