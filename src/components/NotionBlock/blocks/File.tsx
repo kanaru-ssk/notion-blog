@@ -8,7 +8,7 @@ type Props = {
   block: BlockWithChildren<FileBlockObjectResponse>;
 };
 
-const File = ({ block }: Props) => {
+export const File = ({ block }: Props) => {
   const src_file =
     block.file.type === "external"
       ? block.file.external.url
@@ -40,5 +40,3 @@ const File = ({ block }: Props) => {
     </figure>
   );
 };
-
-export default File;

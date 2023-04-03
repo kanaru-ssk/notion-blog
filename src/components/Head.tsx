@@ -8,7 +8,7 @@ type Props = {
   path?: string;
 };
 
-const Head = ({ title, description, image, path }: Props) => {
+export const Head = ({ title, description, image, path }: Props) => {
   return (
     <NextHead>
       <title>{title ?? defaultMetadata.title}</title>
@@ -34,5 +34,3 @@ const Head = ({ title, description, image, path }: Props) => {
     </NextHead>
   );
 };
-
-export default Head;

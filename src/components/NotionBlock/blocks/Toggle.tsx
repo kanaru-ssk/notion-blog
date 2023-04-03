@@ -1,13 +1,13 @@
 import type { ToggleBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import NotionBlock from "@/components/NotionBlock";
-import RichText from "@/components/NotionBlock/blocks/RichText";
+import { NotionBlock } from "@/components/NotionBlock";
+import { RichText } from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<ToggleBlockObjectResponse>;
 };
 
-const Toggle = ({ block }: Props) => {
+export const Toggle = ({ block }: Props) => {
   return (
     <details className="my-5 rounded-md border-2 border-gray-200 py-2 px-4">
       <summary className="cursor-pointer">
@@ -25,5 +25,3 @@ const Toggle = ({ block }: Props) => {
     </details>
   );
 };
-
-export default Toggle;

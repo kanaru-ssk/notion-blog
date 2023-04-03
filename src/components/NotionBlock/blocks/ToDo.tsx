@@ -1,12 +1,12 @@
 import type { ToDoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import RichText from "@/components/NotionBlock/blocks/RichText";
+import { RichText } from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<ToDoBlockObjectResponse>;
 };
 
-const ToDo = ({ block }: Props) => {
+export const ToDo = ({ block }: Props) => {
   return (
     <li className="my-2">
       <input
@@ -19,5 +19,3 @@ const ToDo = ({ block }: Props) => {
     </li>
   );
 };
-
-export default ToDo;

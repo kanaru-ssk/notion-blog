@@ -1,12 +1,12 @@
 import type { CalloutBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import RichText from "@/components/NotionBlock/blocks/RichText";
+import { RichText } from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<CalloutBlockObjectResponse>;
 };
 
-const Callout = ({ block }: Props) => {
+export const Callout = ({ block }: Props) => {
   return (
     <aside className="my-6 flex items-center gap-4 rounded-xl bg-orange-100 p-6 text-gray-800">
       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-400 font-bold text-white">
@@ -18,5 +18,3 @@ const Callout = ({ block }: Props) => {
     </aside>
   );
 };
-
-export default Callout;

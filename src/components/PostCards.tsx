@@ -6,7 +6,7 @@ type Props = {
   posts: Post[];
 };
 
-const PostCards = ({ posts }: Props) => {
+export const PostCards = ({ posts }: Props) => {
   return (
     <ul className="flex flex-col gap-4 md:gap-8">
       {posts.map((post) => {
@@ -15,8 +15,6 @@ const PostCards = ({ posts }: Props) => {
     </ul>
   );
 };
-
-export default PostCards;
 
 type PostCardProps = {
   post: Post;

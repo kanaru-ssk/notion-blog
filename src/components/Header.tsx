@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className="sticky top-0 z-10 flex h-12 items-center justify-between px-4 backdrop-blur md:h-20 md:px-8">
       <Link href="/">
@@ -17,5 +17,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

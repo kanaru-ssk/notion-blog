@@ -5,7 +5,7 @@ type Props = {
   numPages: number;
 };
 
-const PageNation = ({ pageIndex, numPages }: Props) => {
+export const PageNation = ({ pageIndex, numPages }: Props) => {
   const prevIndexItems: JSX.Element[] = [];
   if (pageIndex < 7) {
     for (let i = pageIndex - 1; 0 < i; i--) {
@@ -54,8 +54,6 @@ const PageNation = ({ pageIndex, numPages }: Props) => {
     </ul>
   );
 };
-
-export default PageNation;
 
 type PageNationItemProps = {
   index: number;

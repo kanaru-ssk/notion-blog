@@ -1,12 +1,12 @@
 import type { ColumnBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import NotionBlock from "@/components/NotionBlock";
+import { NotionBlock } from "@/components/NotionBlock";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<ColumnBlockObjectResponse>;
 };
 
-const Column = ({ block }: Props) => {
+export const Column = ({ block }: Props) => {
   return (
     <div className="min-w-0 flex-1 break-words">
       {block.children &&
@@ -16,5 +16,3 @@ const Column = ({ block }: Props) => {
     </div>
   );
 };
-
-export default Column;

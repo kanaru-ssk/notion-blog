@@ -1,11 +1,11 @@
-import NotionBlock from "@/components/NotionBlock";
+import { NotionBlock } from "@/components/NotionBlock";
 import type { BulletedListBlockObjectResponse } from "@/types/notion";
 
 type Props = {
   block: BulletedListBlockObjectResponse;
 };
 
-const BulletedList = ({ block }: Props) => {
+export const BulletedList = ({ block }: Props) => {
   return (
     <ul className="my-5 list-disc pl-7">
       {block.bulleted_list.children.map((child) => (
@@ -14,5 +14,3 @@ const BulletedList = ({ block }: Props) => {
     </ul>
   );
 };
-
-export default BulletedList;

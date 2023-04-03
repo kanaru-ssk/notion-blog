@@ -6,7 +6,7 @@ type Props = {
   url: string;
 };
 
-const Facebook = ({ url }: Props) => {
+export const Facebook = ({ url }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isLoading, onLoaded] = useReducer(() => false, true);
   useMutationObserver({
@@ -30,8 +30,6 @@ const Facebook = ({ url }: Props) => {
     </div>
   );
 };
-
-export default Facebook;
 
 const Skeleton = () => {
   return (

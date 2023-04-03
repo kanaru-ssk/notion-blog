@@ -6,7 +6,7 @@ type Props = {
   nextPost: Post | null;
 };
 
-const FooterNav = ({ prevPost, nextPost }: Props) => {
+export const FooterNav = ({ prevPost, nextPost }: Props) => {
   return (
     <nav className="flex h-28 items-center border-y border-gray-200">
       <div className="h-full flex-1">
@@ -33,8 +33,6 @@ const FooterNav = ({ prevPost, nextPost }: Props) => {
     </nav>
   );
 };
-
-export default FooterNav;
 
 type FooterNavItemProps = {
   title?: string;

@@ -8,7 +8,7 @@ type Props = {
   block: BlockWithChildren<BookmarkBlockObjectResponse>;
 };
 
-const Bookmark = ({ block }: Props) => {
+export const Bookmark = ({ block }: Props) => {
   const { url, caption } = block.bookmark;
   return (
     <figure className="my-5">
@@ -30,5 +30,3 @@ const Bookmark = ({ block }: Props) => {
     </figure>
   );
 };
-
-export default Bookmark;

@@ -1,12 +1,12 @@
 import type { VideoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
-import YouTube from "./embed/YouTube";
+import { YouTube } from "./embed/YouTube";
 
 type Props = {
   block: BlockWithChildren<VideoBlockObjectResponse>;
 };
 
-const Video = ({ block }: Props) => {
+export const Video = ({ block }: Props) => {
   if (block.video.type === "file") {
     return (
       <video controls className="h-40 w-72 md:h-52 md:w-96">
@@ -28,5 +28,3 @@ const Video = ({ block }: Props) => {
   }
   return null;
 };
-
-export default Video;

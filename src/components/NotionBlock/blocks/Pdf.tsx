@@ -6,7 +6,7 @@ type Props = {
   block: BlockWithChildren<PdfBlockObjectResponse>;
 };
 
-const Pdf = ({ block: { pdf } }: Props) => {
+export const Pdf = ({ block: { pdf } }: Props) => {
   return (
     <div className="my-4 leading-8">
       <object
@@ -26,5 +26,3 @@ const Pdf = ({ block: { pdf } }: Props) => {
     </div>
   );
 };
-
-export default Pdf;

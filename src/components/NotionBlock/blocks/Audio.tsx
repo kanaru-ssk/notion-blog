@@ -5,7 +5,7 @@ type Props = {
   block: BlockWithChildren<AudioBlockObjectResponse>;
 };
 
-const Audio = ({ block: { audio } }: Props) => {
+export const Audio = ({ block: { audio } }: Props) => {
   return (
     <div className="my-4">
       <audio controls className="w-full">
@@ -22,5 +22,3 @@ const Audio = ({ block: { audio } }: Props) => {
     </div>
   );
 };
-
-export default Audio;

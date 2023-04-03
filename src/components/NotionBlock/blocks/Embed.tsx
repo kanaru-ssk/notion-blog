@@ -1,15 +1,15 @@
 import type { EmbedBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { BlockWithChildren } from "@/types/notion";
-import Facebook from "./embed/Facebook";
-import Instagram from "./embed/Instagram";
-import TikTok from "./embed/TikTok";
-import Twitter from "./embed/Twitter";
+import { Facebook } from "./embed/Facebook";
+import { Instagram } from "./embed/Instagram";
+import { TikTok } from "./embed/TikTok";
+import { Twitter } from "./embed/Twitter";
 
 type Props = {
   block: BlockWithChildren<EmbedBlockObjectResponse>;
 };
 
-const Embed = ({ block }: Props) => {
+export const Embed = ({ block }: Props) => {
   const { url } = block.embed;
 
   if (url.includes("instagram.com")) return <Instagram url={url} />;
@@ -26,5 +26,3 @@ const Embed = ({ block }: Props) => {
     </div>
   );
 };
-
-export default Embed;

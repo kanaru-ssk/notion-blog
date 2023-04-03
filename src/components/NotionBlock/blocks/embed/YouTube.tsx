@@ -2,7 +2,7 @@ type Props = {
   url: string;
 };
 
-const YouTube = ({ url }: Props) => {
+export const YouTube = ({ url }: Props) => {
   const YouTubeVideoId = url.match(
     /(?:\?v=|&v=|youtu\.be\/)(.*?)(?:\?|&|$)/
   )?.[1];
@@ -20,5 +20,3 @@ const YouTube = ({ url }: Props) => {
     </div>
   );
 };
-
-export default YouTube;

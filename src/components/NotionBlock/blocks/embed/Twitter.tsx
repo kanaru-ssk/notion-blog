@@ -7,13 +7,11 @@ type Props = {
   url: string;
 };
 
-const Twitter = ({ url }: Props) => {
+export const Twitter = ({ url }: Props) => {
   const isTweet = url.includes("/status/");
   if (isTweet) return <Tweet url={url} />;
   return <Timeline url={url} />;
 };
-
-export default Twitter;
 
 const Tweet = ({ url }: Props) => {
   return (

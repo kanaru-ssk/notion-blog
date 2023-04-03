@@ -1,13 +1,13 @@
 import type { ParagraphBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import NotionBlock from "@/components/NotionBlock";
-import RichText from "@/components/NotionBlock/blocks/RichText";
+import { NotionBlock } from "@/components/NotionBlock";
+import { RichText } from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<ParagraphBlockObjectResponse>;
 };
 
-const Paragraph = ({ block }: Props) => {
+export const Paragraph = ({ block }: Props) => {
   return (
     <>
       <p className="mt-1 min-h-[18px]">
@@ -23,5 +23,3 @@ const Paragraph = ({ block }: Props) => {
     </>
   );
 };
-
-export default Paragraph;

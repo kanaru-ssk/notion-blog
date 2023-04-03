@@ -5,7 +5,7 @@ type Props = {
   text: RichTextItemResponse[];
 };
 
-const RichText = ({ text }: Props) => {
+export const RichText = ({ text }: Props) => {
   return (
     <>
       {text.map((value, index) => {
@@ -66,5 +66,3 @@ const RichText = ({ text }: Props) => {
     </>
   );
 };
-
-export default RichText;

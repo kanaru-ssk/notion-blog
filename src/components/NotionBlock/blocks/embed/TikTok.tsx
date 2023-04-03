@@ -4,7 +4,7 @@ type Props = {
   url: string;
 };
 
-const TikTok = ({ url }: Props) => {
+export const TikTok = ({ url }: Props) => {
   const TikTokVideoId = url.match(/\/video\/(\d+)/)?.[1];
   return (
     <div className="my-5">
@@ -19,5 +19,3 @@ const TikTok = ({ url }: Props) => {
     </div>
   );
 };
-
-export default TikTok;

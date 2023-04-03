@@ -1,13 +1,13 @@
 import type { TableBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { Fragment } from "react";
-import RichText from "@/components/NotionBlock/blocks/RichText";
+import { RichText } from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<TableBlockObjectResponse>;
 };
 
-const Table = ({ block }: Props) => {
+export const Table = ({ block }: Props) => {
   return (
     <table className="my-4 mx-auto block w-auto border-collapse text-sm">
       <tbody>
@@ -38,5 +38,3 @@ const Table = ({ block }: Props) => {
     </table>
   );
 };
-
-export default Table;

@@ -6,7 +6,7 @@ type Props = {
   url: string;
 };
 
-const Instagram = ({ url }: Props) => {
+export const Instagram = ({ url }: Props) => {
   return (
     <div className="my-5">
       <blockquote
@@ -21,8 +21,6 @@ const Instagram = ({ url }: Props) => {
     </div>
   );
 };
-
-export default Instagram;
 
 type SkeletonProps = {
   url: string;

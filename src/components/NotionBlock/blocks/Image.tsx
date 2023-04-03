@@ -7,7 +7,7 @@ type Props = {
   block: BlockWithChildren<ImageBlockObjectResponse>;
 };
 
-const Image = ({ block }: Props) => {
+export const Image = ({ block }: Props) => {
   const src =
     block.image.type === "external"
       ? block.image.external.url
@@ -31,5 +31,3 @@ const Image = ({ block }: Props) => {
     </figure>
   );
 };
-
-export default Image;

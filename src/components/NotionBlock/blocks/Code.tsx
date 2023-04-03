@@ -8,7 +8,7 @@ type Props = {
   block: BlockWithChildren<CodeBlockObjectResponse>;
 };
 
-const Code = ({ block }: Props) => {
+export const Code = ({ block }: Props) => {
   const plaintext = richTextToString(block.code.rich_text);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -40,5 +40,3 @@ const Code = ({ block }: Props) => {
     </div>
   );
 };
-
-export default Code;

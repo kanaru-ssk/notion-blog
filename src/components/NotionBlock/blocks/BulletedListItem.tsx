@@ -1,13 +1,13 @@
 import type { BulletedListItemBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import NotionBlock from "@/components/NotionBlock";
-import RichText from "@/components/NotionBlock/blocks/RichText";
+import { NotionBlock } from "@/components/NotionBlock";
+import { RichText } from "@/components/NotionBlock/blocks/RichText";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
   block: BlockWithChildren<BulletedListItemBlockObjectResponse>;
 };
 
-const BulletedListItem = ({ block }: Props) => {
+export const BulletedListItem = ({ block }: Props) => {
   return (
     <li className="m-1.5">
       <RichText text={block.bulleted_list_item.rich_text} />
@@ -17,5 +17,3 @@ const BulletedListItem = ({ block }: Props) => {
     </li>
   );
 };
-
-export default BulletedListItem;
