@@ -12,7 +12,7 @@ type Props = {
 export const SpeechBubble = ({ children, iconImageSrc, isReverse }: Props) => {
   return (
     <div
-      className={`${isReverse ? "flex-row-reverse" : ""} flex items-end gap-4`}
+      className={`${isReverse ? "flex-row-reverse" : ""} flex items-end gap-3`}
     >
       <SpeechIcon src={iconImageSrc} />
       <Bubble isReverse={isReverse}>{children}</Bubble>
