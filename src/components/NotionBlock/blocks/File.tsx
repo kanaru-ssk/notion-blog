@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { richTextToString } from "@/libs/notion";
 import type { BlockWithChildren } from "@/types/notion";
+import clipIcon from "../images/clip-icon.svg";
 
 type Props = {
   block: BlockWithChildren<FileBlockObjectResponse>;
@@ -26,7 +27,7 @@ export const File = ({ block }: Props) => {
         className="font-medium text-blue-600 dark:text-blue-500"
       >
         <span className="group flex w-fit items-center gap-2">
-          <Image src="clip-icon.svg" alt="clip-icon" width={16} height={16} />
+          <Image src={clipIcon} alt="clip-icon" width={16} height={16} />
           <span className="group-hover:underline">
             {lastElementInArray.split("?")[0]}
           </span>

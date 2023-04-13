@@ -1,10 +1,11 @@
+import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 import { Bubble } from "./Bubble";
 import { SpeechIcon } from "./SpeechIcon";
 
 type Props = {
   children: ReactNode;
-  iconImageSrc: string;
+  iconImageSrc: string | StaticImageData;
   isReverse?: boolean;
 };
 

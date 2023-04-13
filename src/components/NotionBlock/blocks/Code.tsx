@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { richTextToString } from "@/libs/notion";
 import type { BlockWithChildren } from "@/types/notion";
+import copyIcon from "../images/copy-icon.svg";
 
 type Props = {
   block: BlockWithChildren<CodeBlockObjectResponse>;
@@ -35,7 +36,7 @@ export const Code = ({ block }: Props) => {
         <span className="absolute -translate-x-1/2 -translate-y-8 rounded bg-slate-800 px-2 py-1 text-xs text-white opacity-0 duration-100 group-hover/button:opacity-80">
           {isCopied ? "Copied!" : "Copy"}
         </span>
-        <Image src="copy-icon.svg" alt="copy-icon" width={20} height={20} />
+        <Image src={copyIcon} alt="copy-icon" width={20} height={20} />
       </button>
     </div>
   );

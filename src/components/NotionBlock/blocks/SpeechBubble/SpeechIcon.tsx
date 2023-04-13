@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type Props = {
-  src: string;
+  src: string | StaticImageData;
 };
 
 export const SpeechIcon = ({ src }: Props) => {
