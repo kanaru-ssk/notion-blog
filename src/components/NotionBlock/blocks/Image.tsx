@@ -22,7 +22,7 @@ export const Image = ({ block }: Props) => {
         alt={caption}
         width={700}
         height={475}
-        className="h-auto w-full"
+        className="h-auto w-full drop-shadow"
         title={caption}
       />
       {caption && (
