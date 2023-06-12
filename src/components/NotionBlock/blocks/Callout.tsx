@@ -2,6 +2,8 @@ import type { CalloutBlockObjectResponse } from "@notionhq/client/build/src/api-
 import { RichText } from "@/components/NotionBlock/blocks/RichText";
 import { SpeechBubble } from "@/components/NotionBlock/blocks/SpeechBubble";
 import type { BlockWithChildren } from "@/types/notion";
+import gorillaIcon from "../images/gorilla.png";
+import ramIcon from "../images/ram.png";
 
 type Props = {
   block: BlockWithChildren<CalloutBlockObjectResponse>;
@@ -15,7 +17,7 @@ export const Callout = ({ block }: Props) => {
       return (
         <div className="my-4">
           <SpeechBubble
-            iconImageSrc={isRam ? "/images/ram.png" : "/images/gorilla.png"}
+            iconImageSrc={isRam ? ramIcon : gorillaIcon}
             isReverse={isGorilla}
           >
             <RichText text={block.callout.rich_text} />
