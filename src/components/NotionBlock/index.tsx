@@ -1,3 +1,4 @@
+"use client";
 import type { ExpandedBlockObjectResponse } from "@/types/notion";
 import { Audio } from "./blocks/Audio";
 import { Bookmark } from "./blocks/Bookmark";

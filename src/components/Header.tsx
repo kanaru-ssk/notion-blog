@@ -1,10 +1,10 @@
+import { draftMode } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { ExitPreviewButton } from "@/components/ExitPreviewButton";
+import { DisableDraftButton } from "@/components/ExitDraftButton";
 
 export const Header = () => {
-  const { isPreview } = useRouter();
+  const { isEnabled } = draftMode();
 
   return (
     <header className="sticky top-0 z-10 flex h-12 items-center justify-between px-4 backdrop-blur md:h-20 md:px-8">
@@ -18,7 +18,7 @@ export const Header = () => {
           className="h-8 w-auto md:h-12"
         />
       </Link>
-      {isPreview && <ExitPreviewButton />}
+      {isEnabled && <DisableDraftButton />}
     </header>
   );
 };

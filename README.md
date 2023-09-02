@@ -41,7 +41,7 @@ pnpm install
 NEXT_PUBLIC_DOMAIN="http://localhost:3000"
 NOTION_TOKEN="your-notion-api-key"
 NOTION_DATABASE="your-notion-database-id"
-PREVIEW_TOKEN="any-token-string"
+DRAFT_MODE_TOKEN="any-token-string"
 ```
 
 5. Start the development server:
