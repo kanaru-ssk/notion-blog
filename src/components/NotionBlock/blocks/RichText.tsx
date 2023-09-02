@@ -33,7 +33,7 @@ export const RichText = ({ text }: Props) => {
             >
               <Link
                 href={text.link.url}
-                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                className="font-medium text-blue-600 hover:underline"
               >
                 {text.content}
               </Link>

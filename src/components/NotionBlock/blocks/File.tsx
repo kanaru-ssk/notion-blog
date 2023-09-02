@@ -21,11 +21,7 @@ export const File = ({ block }: Props) => {
     : "";
   return (
     <figure className="my-5">
-      <Link
-        href={src_file}
-        passHref
-        className="font-medium text-blue-600 dark:text-blue-500"
-      >
+      <Link href={src_file} passHref className="font-medium text-blue-600">
         <span className="group flex w-fit items-center gap-2">
           <Image src={clipIcon} alt="clip-icon" width={16} height={16} />
           <span className="group-hover:underline">

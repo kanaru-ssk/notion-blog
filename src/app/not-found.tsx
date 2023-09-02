@@ -12,10 +12,7 @@ const NotFound = () => (
         </p>
         <br />
         <p>
-          <Link
-            href="/"
-            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-          >
+          <Link href="/" className="font-medium text-blue-600 hover:underline">
             トップページへ戻る
           </Link>
         </p>

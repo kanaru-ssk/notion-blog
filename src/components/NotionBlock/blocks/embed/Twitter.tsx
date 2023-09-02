@@ -40,7 +40,7 @@ const Timeline = ({ url }: Props) => {
       {isLoading && <Skeleton url={url} />}
       <Link
         href={url}
-        className="twitter-timeline w-full bg-white text-center font-medium leading-[0] text-blue-600 hover:underline dark:text-blue-500"
+        className="twitter-timeline w-full bg-white text-center font-medium leading-[0] text-blue-600 hover:underline"
         data-height={600}
         target="_blank"
       ></Link>

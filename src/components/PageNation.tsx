@@ -64,7 +64,7 @@ const PageNationItem = ({ index }: PageNationItemProps) => {
     <li>
       <Link
         href={index === 1 ? "/" : `/page/${index}`}
-        className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+        className="font-medium text-blue-600 hover:underline"
       >
         <span className="inline-block w-8 rounded border border-gray-400 bg-gray-100 py-1 text-center">
           {index}
