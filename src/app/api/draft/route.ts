@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function GET(request: Request) {
+export const GET = async (request: Request) => {
   const { searchParams } = new URL(request.url);
   const token = searchParams.get("token");
 
@@ -12,4 +12,4 @@ export async function GET(request: Request) {
   draftMode().enable();
 
   return redirect("/");
-}
+};
