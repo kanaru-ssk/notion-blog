@@ -31,7 +31,7 @@ export const Code = ({ block }: Props) => {
       </pre>
       <button
         onClick={handleCopyClick}
-        className="group/button absolute top-0 right-0 m-2 rounded-lg bg-white/50 p-2 opacity-0 duration-100 group-hover:opacity-100"
+        className="group/button absolute right-0 top-0 m-2 rounded-lg bg-white/50 p-2 opacity-0 duration-100 group-hover:opacity-100"
       >
         <span className="absolute -translate-x-1/2 -translate-y-8 rounded bg-slate-800 px-2 py-1 text-xs text-white opacity-0 duration-100 group-hover/button:opacity-80">
           {isCopied ? "Copied!" : "Copy"}

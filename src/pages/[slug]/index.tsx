@@ -22,7 +22,7 @@ const PostPage: NextPage<Props> = ({ post, prevPost, nextPost, blocks }) => {
         path={post.slug}
       />
       <div className="bg-gray-200">
-        <div className="mx-auto max-w-3xl md:py-20 md:px-4">
+        <div className="mx-auto max-w-3xl md:px-4 md:py-20">
           <article className="rounded-md bg-white px-4 py-12 md:px-12">
             {blocks.map((block) => (
               <NotionBlock block={block} key={block.id} />

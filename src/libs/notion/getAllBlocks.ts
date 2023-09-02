@@ -7,7 +7,7 @@ import type { ExpandedBlockObjectResponse } from "@/types/notion";
 import { notion } from "./client";
 
 export const getAllBlocks = async (
-  blockId: string
+  blockId: string,
 ): Promise<ExpandedBlockObjectResponse[]> => {
   const allResults: (BlockObjectResponse | PartialBlockObjectResponse)[] = [];
 
@@ -73,7 +73,7 @@ export const getAllBlocks = async (
         }
         return result;
       },
-      []
+      [],
     );
   });
 };

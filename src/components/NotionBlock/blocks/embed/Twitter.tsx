@@ -77,7 +77,7 @@ const Skeleton = ({ url }: Props) => {
           <div className="mt-8 h-8 rounded-full border border-gray-200"></div>
         </div>
       </div>
-      <div className="absolute top-48 left-1/2 flex -translate-x-1/2 flex-col items-center justify-center gap-4">
+      <div className="absolute left-1/2 top-48 flex -translate-x-1/2 flex-col items-center justify-center gap-4">
         <Link
           href={url}
           className="text-center text-sm font-semibold text-blue-600"

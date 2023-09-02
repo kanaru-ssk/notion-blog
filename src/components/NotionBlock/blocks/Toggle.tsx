@@ -9,7 +9,7 @@ type Props = {
 
 export const Toggle = ({ block }: Props) => {
   return (
-    <details className="my-5 rounded-md border-2 border-gray-200 py-2 px-4">
+    <details className="my-5 rounded-md border-2 border-gray-200 px-4 py-2">
       <summary className="cursor-pointer">
         <span className="ml-2">
           <RichText text={block.toggle.rich_text} />

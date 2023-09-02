@@ -7,7 +7,7 @@ type Props = {
 
 export const Heading2 = ({ block }: Props) => {
   return (
-    <h2 className="mt-12 mb-4 text-2xl font-bold">
+    <h2 className="mb-4 mt-12 text-2xl font-bold">
       <RichText text={block.heading_2.rich_text} />
     </h2>
   );

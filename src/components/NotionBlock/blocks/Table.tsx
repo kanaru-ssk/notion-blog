@@ -9,7 +9,7 @@ type Props = {
 
 export const Table = ({ block }: Props) => {
   return (
-    <table className="my-4 mx-auto block w-auto border-collapse text-sm">
+    <table className="mx-auto my-4 block w-auto border-collapse text-sm">
       <tbody>
         {block.children?.map((child, childIndex) => {
           return (

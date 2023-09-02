@@ -47,7 +47,7 @@ export const RichText = ({ text }: Props) => {
               style={color !== "default" ? { color } : {}}
               key={key}
             >
-              <code className="rounded bg-gray-200 py-1 px-2 font-mono text-sm">
+              <code className="rounded bg-gray-200 px-2 py-1 font-mono text-sm">
                 {text.content}
               </code>
             </span>

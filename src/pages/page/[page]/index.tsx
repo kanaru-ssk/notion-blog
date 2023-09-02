@@ -19,7 +19,7 @@ const Page: NextPage<Props> = ({ posts, page }) => {
     <>
       <Head />
       <div className="bg-gray-200">
-        <div className="mx-auto max-w-3xl py-20 px-4">
+        <div className="mx-auto max-w-3xl px-4 py-20">
           <PostCards posts={posts} />
           <PageNation {...page} />
         </div>
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const allPosts = await getAllPosts();
   const posts = allPosts.slice(
     postsPerPage * (pageIndex - 1),
-    postsPerPage * pageIndex
+    postsPerPage * pageIndex,
   );
   const numPages = Math.ceil(allPosts.length / postsPerPage);
   return {
