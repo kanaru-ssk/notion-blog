@@ -1,7 +1,7 @@
 import type { CodeBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import Image from "next/image";
 import { useState } from "react";
-import { richTextToString } from "@/libs/notion";
+import { richTextToString } from "@/libs";
 import type { BlockWithChildren } from "@/types/notion";
 import copyIcon from "../images/copy-icon.svg";
 

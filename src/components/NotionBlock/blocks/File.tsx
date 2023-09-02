@@ -1,7 +1,7 @@
 import type { FileBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import Image from "next/image";
 import Link from "next/link";
-import { richTextToString } from "@/libs/notion";
+import { richTextToString } from "@/libs";
 import type { BlockWithChildren } from "@/types/notion";
 import clipIcon from "../images/clip-icon.svg";
 

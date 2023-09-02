@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { PageNation } from "@/components/PageNation";
 import { PostCards } from "@/components/PostCards";
 import { postsPerPage } from "@/constants/postsPerPage";
-import { getAllPosts } from "@/libs/notion";
+import { getAllPosts } from "@/libs";
 
 const Page = async ({ params }: { params: { page: string } }) => {
   if (!params || typeof params.page !== "string") return notFound();

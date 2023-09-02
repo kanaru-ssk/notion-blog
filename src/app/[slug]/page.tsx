@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FooterNav } from "@/components/FooterNav";
 import { NotionBlock } from "@/components/NotionBlock";
-import { getAllBlocks, getAllPosts } from "@/libs/notion";
+import { getAllBlocks, getAllPosts } from "@/libs";
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
   if (!params || typeof params.slug !== "string") return notFound();

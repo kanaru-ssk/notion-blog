@@ -1,6 +1,6 @@
 import type { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import NextImage from "next/image";
-import { richTextToString } from "@/libs/notion";
+import { richTextToString } from "@/libs";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {
