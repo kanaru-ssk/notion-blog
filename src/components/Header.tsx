@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import { DisableDraftButton } from "@/components/ExitDraftButton";
+import { DisableDraftButton } from "@/components/DisableDraftButton";
 
 export const Header = () => {
   const { isEnabled } = draftMode();
