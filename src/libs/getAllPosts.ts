@@ -1,13 +1,10 @@
-import type {
-  PageObjectResponse,
-  PartialPageObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
+import type { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { Post } from "@/types/notion";
 import { notion } from "./client";
 import { notionResponseToPost } from "./notionResponseToPost";
 
 export const getAllPosts = async (): Promise<Post[]> => {
-  const allResults: (PageObjectResponse | PartialPageObjectResponse)[] = [];
+  const allResults: QueryDatabaseResponse["results"] = [];
   let hasMore = true;
   while (hasMore) {
     const res = await notion.databases.query({

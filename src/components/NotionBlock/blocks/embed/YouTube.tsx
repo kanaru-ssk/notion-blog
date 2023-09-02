@@ -4,7 +4,7 @@ type Props = {
 
 export const YouTube = ({ url }: Props) => {
   const YouTubeVideoId = url.match(
-    /(?:\?v=|&v=|youtu\.be\/)(.*?)(?:\?|&|$)/
+    /(?:\?v=|&v=|youtu\.be\/)(.*?)(?:\?|&|$)/,
   )?.[1];
   return (
     <div className="m-1.5">

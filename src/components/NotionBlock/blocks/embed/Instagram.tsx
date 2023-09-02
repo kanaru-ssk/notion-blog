@@ -44,7 +44,7 @@ const Skeleton = ({ url }: SkeletonProps) => {
           <div className="mt-1 h-3 w-28 rounded bg-gray-200"></div>
         </div>
       </div>
-      <div className="absolute top-36 left-1/2 flex -translate-x-1/2 flex-col items-center justify-center gap-4">
+      <div className="absolute left-1/2 top-36 flex -translate-x-1/2 flex-col items-center justify-center gap-4">
         <div className="mx-auto w-[50px]">
           <Image
             src={instagramIcon}

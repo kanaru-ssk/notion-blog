@@ -18,7 +18,7 @@ export const Pdf = ({ block: { pdf } }: Props) => {
         <p>Your browser does not support PDFs.</p>
         <Link
           href={pdf.type === "file" ? pdf.file.url : pdf.external.url}
-          className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+          className="font-medium text-blue-600 hover:underline"
         >
           Download the PDF
         </Link>

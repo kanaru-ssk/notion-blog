@@ -1,5 +1,5 @@
 import type { QuoteBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { richTextToString } from "@/libs/notion";
+import { richTextToString } from "@/libs";
 import type { BlockWithChildren } from "@/types/notion";
 
 type Props = {

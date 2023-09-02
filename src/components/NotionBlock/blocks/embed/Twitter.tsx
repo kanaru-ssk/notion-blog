@@ -40,7 +40,7 @@ const Timeline = ({ url }: Props) => {
       {isLoading && <Skeleton url={url} />}
       <Link
         href={url}
-        className="twitter-timeline w-full bg-white text-center font-medium leading-[0] text-blue-600 hover:underline dark:text-blue-500"
+        className="twitter-timeline w-full bg-white text-center font-medium leading-[0] text-blue-600 hover:underline"
         data-height={600}
         target="_blank"
       ></Link>
@@ -77,7 +77,7 @@ const Skeleton = ({ url }: Props) => {
           <div className="mt-8 h-8 rounded-full border border-gray-200"></div>
         </div>
       </div>
-      <div className="absolute top-48 left-1/2 flex -translate-x-1/2 flex-col items-center justify-center gap-4">
+      <div className="absolute left-1/2 top-48 flex -translate-x-1/2 flex-col items-center justify-center gap-4">
         <Link
           href={url}
           className="text-center text-sm font-semibold text-blue-600"

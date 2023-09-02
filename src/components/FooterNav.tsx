@@ -19,7 +19,7 @@ export const FooterNav = ({ prevPost, nextPost }: Props) => {
         )}
       </div>
       <Link href="/">
-        <div className="border-x py-6 px-4 hover:bg-gray-100">Home</div>
+        <div className="border-x px-4 py-6 hover:bg-gray-100">Home</div>
       </Link>
       <div className="h-full flex-1">
         {nextPost ? (

@@ -1,9 +1,12 @@
-import type { GetPageResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 import type { Post } from "@/types/notion";
 import { richTextToString } from "./richTextToString";
 
-export const notionResponseToPost = (value: GetPageResponse): Post | null => {
+export const notionResponseToPost = (
+  value: QueryDatabaseResponse["results"][number],
+): Post | null => {
   if (!("properties" in value)) return null;
+  if (value.object === "database") return null;
 
   const title =
     value.properties.Title?.type === "title"
